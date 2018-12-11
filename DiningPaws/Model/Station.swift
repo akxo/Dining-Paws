@@ -21,12 +21,19 @@ class Station: NSCoding {
     
     // MARK: persistence
     func encode(with aCoder: NSCoder) {
-        
+        aCoder.encode(name, forKey: Key.name.rawValue)
+        aCoder.encode(options, forKey: Key.options.rawValue)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        
+    required convenience init?(coder aDecoder: NSCoder) {
+        guard let name = aDecoder.decodeObject(forKey: Key.name.rawValue) as? String,
+            let options = aDecoder.decodeObject(forKey: Key.options.rawValue) as? [String] else { return nil }
+        self.init(name: name, options: options)
     }
     
+    private enum Key: String {
+        case name = "name"
+        case options = "options"
+    }
     
 }

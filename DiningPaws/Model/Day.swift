@@ -21,12 +21,18 @@ class Day: NSCoding {
     
     // MARK: persistence
     func encode(with aCoder: NSCoder) {
-        
+        aCoder.encode(date, forKey: Key.date.rawValue)
+        aCoder.encode(meals, forKey: Key.meals.rawValue)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        
+    required convenience init?(coder aDecoder: NSCoder) {
+        guard let date = aDecoder.decodeObject(forKey: Key.date.rawValue) as? Date,
+            let meals = aDecoder.decodeObject(forKey: Key.meals.rawValue) as? [Meal] else { return nil }
+        self.init(date: date, meals: meals)
     }
     
-    
+    private enum Key: String {
+        case date = "date"
+        case meals = "meals"
+    }
 }

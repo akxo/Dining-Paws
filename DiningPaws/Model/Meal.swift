@@ -22,12 +22,19 @@ class Meal: NSCoding {
     
     // MARK: persistence
     func encode(with aCoder: NSCoder) {
-        
+        aCoder.encode(name, forKey: Key.name.rawValue)
+        aCoder.encode(stations, forKey: Key.stations.rawValue)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        
+    required convenience init?(coder aDecoder: NSCoder) {
+        guard let name = aDecoder.decodeObject(forKey: Key.name.rawValue) as? String,
+            let stations = aDecoder.decodeObject(forKey: Key.stations.rawValue) as? [Station] else { return nil }
+        self.init(name: name, stations: stations)
     }
     
+    private enum Key: String {
+        case name = "name"
+        case stations = "stations"
+    }
     
 }

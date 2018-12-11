@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A610F77121BC123700A98DCD /* UConn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610F77021BC123700A98DCD /* UConn.swift */; };
+		A666BA9621BF56F600F078F0 /* DiningHallsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A666BA9421BF56F600F078F0 /* DiningHallsViewController.swift */; };
+		A666BA9721BF56F600F078F0 /* DiningHallsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A666BA9521BF56F600F078F0 /* DiningHallsViewController.xib */; };
 		A6F34EE721BA158200CD3B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F34EE621BA158200CD3B32 /* AppDelegate.swift */; };
-		A6F34EEC21BA158200CD3B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6F34EEA21BA158200CD3B32 /* Main.storyboard */; };
 		A6F34EEE21BA158300CD3B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6F34EED21BA158300CD3B32 /* Assets.xcassets */; };
 		A6F34EF121BA158300CD3B32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6F34EEF21BA158300CD3B32 /* LaunchScreen.storyboard */; };
-		A6F34EFC21BA158300CD3B32 /* dining_paws_2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F34EFB21BA158300CD3B32 /* dining_paws_2_0Tests.swift */; };
 		A6F34F0721BA186D00CD3B32 /* MenuClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F34F0621BA186D00CD3B32 /* MenuClient.swift */; };
 		A6F34F0921BA1A4900CD3B32 /* DiningHall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F34F0821BA1A4900CD3B32 /* DiningHall.swift */; };
 		A6F34F0C21BA1C4500CD3B32 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F34F0B21BA1C4500CD3B32 /* Day.swift */; };
@@ -19,28 +20,30 @@
 		A6F34F1021BA1D5800CD3B32 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F34F0F21BA1D5800CD3B32 /* Station.swift */; };
 		A6F34F1221BA229000CD3B32 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F34F1121BA229000CD3B32 /* HTMLParser.swift */; };
 		A6F34F1621BA261A00CD3B32 /* Campus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F34F1521BA261A00CD3B32 /* Campus.swift */; };
+		A6FE50D921BEE1EC0071C67F /* DiningPaws+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FE50D821BEE1EC0071C67F /* DiningPaws+Date.swift */; };
+		A6FE50E021BEF8C10071C67F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FE50DF21BEF8C10071C67F /* Default-568h@2x.png */; };
+		A6FE50E821BEFC2D0071C67F /* DiningPawsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FE50E721BEFC2D0071C67F /* DiningPawsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A6F34EF821BA158300CD3B32 /* PBXContainerItemProxy */ = {
+		A6FE50EA21BEFC2D0071C67F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A6F34EDB21BA158200CD3B32 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A6F34EE221BA158200CD3B32;
-			remoteInfo = "dining-paws-2.0";
+			remoteInfo = DiningPaws;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A610F77021BC123700A98DCD /* UConn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UConn.swift; path = DiningPaws/Model/UConn.swift; sourceTree = SOURCE_ROOT; };
+		A666BA9421BF56F600F078F0 /* DiningHallsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallsViewController.swift; sourceTree = "<group>"; };
+		A666BA9521BF56F600F078F0 /* DiningHallsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiningHallsViewController.xib; sourceTree = "<group>"; };
 		A6F34EE321BA158200CD3B32 /* DiningPaws.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiningPaws.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6F34EE621BA158200CD3B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A6F34EEB21BA158200CD3B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6F34EED21BA158300CD3B32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6F34EF021BA158300CD3B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A6F34EF221BA158300CD3B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A6F34EF721BA158300CD3B32 /* DiningPawsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiningPawsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6F34EFB21BA158300CD3B32 /* dining_paws_2_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dining_paws_2_0Tests.swift; sourceTree = "<group>"; };
-		A6F34EFD21BA158300CD3B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6F34EF221BA158300CD3B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = DiningPaws/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		A6F34F0621BA186D00CD3B32 /* MenuClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuClient.swift; sourceTree = "<group>"; };
 		A6F34F0821BA1A4900CD3B32 /* DiningHall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHall.swift; sourceTree = "<group>"; };
 		A6F34F0B21BA1C4500CD3B32 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
@@ -48,6 +51,11 @@
 		A6F34F0F21BA1D5800CD3B32 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		A6F34F1121BA229000CD3B32 /* HTMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		A6F34F1521BA261A00CD3B32 /* Campus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campus.swift; sourceTree = "<group>"; };
+		A6FE50D821BEE1EC0071C67F /* DiningPaws+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiningPaws+Date.swift"; sourceTree = "<group>"; };
+		A6FE50DF21BEF8C10071C67F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A6FE50E521BEFC2D0071C67F /* DiningPawsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiningPawsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6FE50E721BEFC2D0071C67F /* DiningPawsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningPawsTests.swift; sourceTree = "<group>"; };
+		A6FE50E921BEFC2D0071C67F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +66,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A6F34EF421BA158300CD3B32 /* Frameworks */ = {
+		A6FE50E221BEFC2D0071C67F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -72,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				A6F34EE521BA158200CD3B32 /* DiningPaws */,
-				A6F34EFA21BA158300CD3B32 /* DiningPaws */,
+				A6FE50E621BEFC2D0071C67F /* DiningPawsTests */,
 				A6F34EE421BA158200CD3B32 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				A6F34EE321BA158200CD3B32 /* DiningPaws.app */,
-				A6F34EF721BA158300CD3B32 /* DiningPawsTests.xctest */,
+				A6FE50E521BEFC2D0071C67F /* DiningPawsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,37 +98,64 @@
 			isa = PBXGroup;
 			children = (
 				A6F34EE621BA158200CD3B32 /* AppDelegate.swift */,
-				A6F34EEA21BA158200CD3B32 /* Main.storyboard */,
-				A6F34F0621BA186D00CD3B32 /* MenuClient.swift */,
-				A6F34F1121BA229000CD3B32 /* HTMLParser.swift */,
 				A6F34F0A21BA1C2000CD3B32 /* Model */,
-				A6F34EED21BA158300CD3B32 /* Assets.xcassets */,
-				A6F34EEF21BA158300CD3B32 /* LaunchScreen.storyboard */,
-				A6F34EF221BA158300CD3B32 /* Info.plist */,
+				A6FE50DB21BEE9510071C67F /* View */,
+				A6FE50DC21BEE9680071C67F /* Controller */,
+				A6FE50DA21BEE9400071C67F /* Resources */,
 			);
 			path = DiningPaws;
-			sourceTree = "<group>";
-		};
-		A6F34EFA21BA158300CD3B32 /* DiningPaws */ = {
-			isa = PBXGroup;
-			children = (
-				A6F34EFB21BA158300CD3B32 /* dining_paws_2_0Tests.swift */,
-				A6F34EFD21BA158300CD3B32 /* Info.plist */,
-			);
-			name = DiningPaws;
-			path = "dining-paws-2.0Tests";
 			sourceTree = "<group>";
 		};
 		A6F34F0A21BA1C2000CD3B32 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A6F34F1521BA261A00CD3B32 /* Campus.swift */,
 				A6F34F0821BA1A4900CD3B32 /* DiningHall.swift */,
 				A6F34F0B21BA1C4500CD3B32 /* Day.swift */,
 				A6F34F0D21BA1C5400CD3B32 /* Meal.swift */,
 				A6F34F0F21BA1D5800CD3B32 /* Station.swift */,
-				A6F34F1521BA261A00CD3B32 /* Campus.swift */,
+				A610F77021BC123700A98DCD /* UConn.swift */,
+				A6F34F0621BA186D00CD3B32 /* MenuClient.swift */,
+				A6F34F1121BA229000CD3B32 /* HTMLParser.swift */,
+				A6FE50D821BEE1EC0071C67F /* DiningPaws+Date.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A6FE50DA21BEE9400071C67F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A6FE50DF21BEF8C10071C67F /* Default-568h@2x.png */,
+				A6F34EED21BA158300CD3B32 /* Assets.xcassets */,
+				A6F34EEF21BA158300CD3B32 /* LaunchScreen.storyboard */,
+				A6F34EF221BA158300CD3B32 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A6FE50DB21BEE9510071C67F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A666BA9521BF56F600F078F0 /* DiningHallsViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A6FE50DC21BEE9680071C67F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A666BA9421BF56F600F078F0 /* DiningHallsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A6FE50E621BEFC2D0071C67F /* DiningPawsTests */ = {
+			isa = PBXGroup;
+			children = (
+				A6FE50E721BEFC2D0071C67F /* DiningPawsTests.swift */,
+				A6FE50E921BEFC2D0071C67F /* Info.plist */,
+			);
+			path = DiningPawsTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,22 +178,22 @@
 			productReference = A6F34EE321BA158200CD3B32 /* DiningPaws.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A6F34EF621BA158300CD3B32 /* DiningPawsTests */ = {
+		A6FE50E421BEFC2D0071C67F /* DiningPawsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A6F34F0321BA158300CD3B32 /* Build configuration list for PBXNativeTarget "DiningPawsTests" */;
+			buildConfigurationList = A6FE50EC21BEFC2D0071C67F /* Build configuration list for PBXNativeTarget "DiningPawsTests" */;
 			buildPhases = (
-				A6F34EF321BA158300CD3B32 /* Sources */,
-				A6F34EF421BA158300CD3B32 /* Frameworks */,
-				A6F34EF521BA158300CD3B32 /* Resources */,
+				A6FE50E121BEFC2D0071C67F /* Sources */,
+				A6FE50E221BEFC2D0071C67F /* Frameworks */,
+				A6FE50E321BEFC2D0071C67F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A6F34EF921BA158300CD3B32 /* PBXTargetDependency */,
+				A6FE50EB21BEFC2D0071C67F /* PBXTargetDependency */,
 			);
 			name = DiningPawsTests;
-			productName = "dining-paws-2.0Tests";
-			productReference = A6F34EF721BA158300CD3B32 /* DiningPawsTests.xctest */;
+			productName = DiningPawsTests;
+			productReference = A6FE50E521BEFC2D0071C67F /* DiningPawsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -174,7 +209,7 @@
 					A6F34EE221BA158200CD3B32 = {
 						CreatedOnToolsVersion = 10.1;
 					};
-					A6F34EF621BA158300CD3B32 = {
+					A6FE50E421BEFC2D0071C67F = {
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = A6F34EE221BA158200CD3B32;
 					};
@@ -194,7 +229,7 @@
 			projectRoot = "";
 			targets = (
 				A6F34EE221BA158200CD3B32 /* DiningPaws */,
-				A6F34EF621BA158300CD3B32 /* DiningPawsTests */,
+				A6FE50E421BEFC2D0071C67F /* DiningPawsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -206,11 +241,12 @@
 			files = (
 				A6F34EF121BA158300CD3B32 /* LaunchScreen.storyboard in Resources */,
 				A6F34EEE21BA158300CD3B32 /* Assets.xcassets in Resources */,
-				A6F34EEC21BA158200CD3B32 /* Main.storyboard in Resources */,
+				A666BA9721BF56F600F078F0 /* DiningHallsViewController.xib in Resources */,
+				A6FE50E021BEF8C10071C67F /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A6F34EF521BA158300CD3B32 /* Resources */ = {
+		A6FE50E321BEFC2D0071C67F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -225,43 +261,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6F34F1621BA261A00CD3B32 /* Campus.swift in Sources */,
+				A666BA9621BF56F600F078F0 /* DiningHallsViewController.swift in Sources */,
+				A6FE50D921BEE1EC0071C67F /* DiningPaws+Date.swift in Sources */,
 				A6F34F0E21BA1C5400CD3B32 /* Meal.swift in Sources */,
 				A6F34F0921BA1A4900CD3B32 /* DiningHall.swift in Sources */,
 				A6F34EE721BA158200CD3B32 /* AppDelegate.swift in Sources */,
 				A6F34F0C21BA1C4500CD3B32 /* Day.swift in Sources */,
 				A6F34F1221BA229000CD3B32 /* HTMLParser.swift in Sources */,
 				A6F34F1021BA1D5800CD3B32 /* Station.swift in Sources */,
+				A610F77121BC123700A98DCD /* UConn.swift in Sources */,
 				A6F34F0721BA186D00CD3B32 /* MenuClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A6F34EF321BA158300CD3B32 /* Sources */ = {
+		A6FE50E121BEFC2D0071C67F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6F34EFC21BA158300CD3B32 /* dining_paws_2_0Tests.swift in Sources */,
+				A6FE50E821BEFC2D0071C67F /* DiningPawsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A6F34EF921BA158300CD3B32 /* PBXTargetDependency */ = {
+		A6FE50EB21BEFC2D0071C67F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A6F34EE221BA158200CD3B32 /* DiningPaws */;
-			targetProxy = A6F34EF821BA158300CD3B32 /* PBXContainerItemProxy */;
+			targetProxy = A6FE50EA21BEFC2D0071C67F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A6F34EEA21BA158200CD3B32 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A6F34EEB21BA158200CD3B32 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A6F34EEF21BA158300CD3B32 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -395,7 +426,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZJZ3CR7YKZ;
-				INFOPLIST_FILE = DiningPaws/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DiningPaws/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -413,7 +444,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZJZ3CR7YKZ;
-				INFOPLIST_FILE = DiningPaws/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DiningPaws/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -425,20 +456,19 @@
 			};
 			name = Release;
 		};
-		A6F34F0421BA158300CD3B32 /* Debug */ = {
+		A6FE50ED21BEFC2D0071C67F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZJZ3CR7YKZ;
-				INFOPLIST_FILE = "dining-paws-2.0Tests/Info.plist";
+				INFOPLIST_FILE = DiningPawsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Aktrapp.dining-paws-2-0Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Aktrapp.DiningPawsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -446,20 +476,19 @@
 			};
 			name = Debug;
 		};
-		A6F34F0521BA158300CD3B32 /* Release */ = {
+		A6FE50EE21BEFC2D0071C67F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZJZ3CR7YKZ;
-				INFOPLIST_FILE = "dining-paws-2.0Tests/Info.plist";
+				INFOPLIST_FILE = DiningPawsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Aktrapp.dining-paws-2-0Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Aktrapp.DiningPawsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -488,11 +517,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A6F34F0321BA158300CD3B32 /* Build configuration list for PBXNativeTarget "DiningPawsTests" */ = {
+		A6FE50EC21BEFC2D0071C67F /* Build configuration list for PBXNativeTarget "DiningPawsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A6F34F0421BA158300CD3B32 /* Debug */,
-				A6F34F0521BA158300CD3B32 /* Release */,
+				A6FE50ED21BEFC2D0071C67F /* Debug */,
+				A6FE50EE21BEFC2D0071C67F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

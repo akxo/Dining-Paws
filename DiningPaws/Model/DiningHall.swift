@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DiningHall: NSCoding {
+class DiningHall: NSObject, NSCoding {
 
     let name: String
     let locationNumber: String

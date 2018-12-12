@@ -16,7 +16,7 @@ class MenuClient {
     func day(for date: Date, at diningHall: DiningHall) -> Day {
         var urlString = baseURLString
         urlString += "locationNum=" + diningHall.locationNumber
-        urlString += "&locationName=" + diningHall.locationName
+        urlString += "&locationName=" + diningHall.locationName + "&naFlag=1"
         if !date.isEqualTo(Date()) {
             urlString += "&WeeksMenus=This+Week%27s+Menus&myaction=read&dtdate=" + date.month + "%2f" + date.day + "%2f" + date.year
         }

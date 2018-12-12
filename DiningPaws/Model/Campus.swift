@@ -8,17 +8,16 @@
 
 import Foundation
 
-class Campus: NSCoding {
+class Campus: NSObject, NSCoding {
 
     let schoolName: String
     var diningHalls: [DiningHall]
-    var lastLoadDate: Date
+    var lastLoadDate: Date?
     
     // MARK: init
-    init() {
+    override init() {
         self.schoolName = "UConn"
         self.diningHalls = UConn.initializeNewDiningHalls()
-        self.lastLoadDate = Date()
     }
     
     init(schoolName: String, diningHalls: [DiningHall], lastLoadDate: Date) {
@@ -47,34 +46,44 @@ class Campus: NSCoding {
         case lastLoadDate = "lastLoadDate"
     }
     
-    func updateCampus() {
+    func loadToday() {
         let today = Date()
-        guard !lastLoadDate.isEqualTo(today) else { return }
+        guard !(lastLoadDate?.isEqualTo(today) ?? false) else { return }
         
         for diningHall in diningHalls {
             while !diningHall.days.isEmpty, !diningHall.days.first!.date.isEqualTo(today) {
                 diningHall.days.removeFirst()
             }
         }
-        for i in 0..<3 {
-            guard let nextDate = Calendar.current.date(byAdding: .day, value: i, to: today) else { return }
-            for diningHall in diningHalls {
-                guard i >= diningHall.days.count else { break }
-                let nextDay = MenuClient.shared.day(for: nextDate, at: diningHall)
-                diningHall.days.append(nextDay)
-            }
+        if diningHalls.first?.days.isEmpty ?? true {
+            self.addDay(for: today)
         }
+        guard !(lastLoadDate?.isEqualTo(today) ?? false) else { return }
         lastLoadDate = today
+        save()
+    }
+    
+    func addDay(for date: Date) {
+        for diningHall in diningHalls {
+            let nextDay = MenuClient.shared.day(for: date, at: diningHall)
+            diningHall.days.append(nextDay)
+        }
+        lastLoadDate = Date()
         save()
     }
     
     func save() {
         do {
+
             let campusData = try NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: false)
             UserDefaults.standard.set(campusData, forKey: "campusData")
         } catch let error {
             print("error: \(error)")
         }
+    }
+    
+    func removeData() {
+        UserDefaults.standard.set(nil, forKey: "campusData")
     }
     
 }

@@ -10,6 +10,8 @@
 		A610F77121BC123700A98DCD /* UConn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610F77021BC123700A98DCD /* UConn.swift */; };
 		A666BA9621BF56F600F078F0 /* DiningHallsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A666BA9421BF56F600F078F0 /* DiningHallsViewController.swift */; };
 		A666BA9721BF56F600F078F0 /* DiningHallsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A666BA9521BF56F600F078F0 /* DiningHallsViewController.xib */; };
+		A67DA85F21C0B0B80011D91B /* DiningHallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67DA85D21C0B0B80011D91B /* DiningHallTableViewCell.swift */; };
+		A67DA86021C0B0B80011D91B /* DiningHallTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A67DA85E21C0B0B80011D91B /* DiningHallTableViewCell.xib */; };
 		A6F34EE721BA158200CD3B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F34EE621BA158200CD3B32 /* AppDelegate.swift */; };
 		A6F34EEE21BA158300CD3B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6F34EED21BA158300CD3B32 /* Assets.xcassets */; };
 		A6F34EF121BA158300CD3B32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6F34EEF21BA158300CD3B32 /* LaunchScreen.storyboard */; };
@@ -39,6 +41,8 @@
 		A610F77021BC123700A98DCD /* UConn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UConn.swift; path = DiningPaws/Model/UConn.swift; sourceTree = SOURCE_ROOT; };
 		A666BA9421BF56F600F078F0 /* DiningHallsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallsViewController.swift; sourceTree = "<group>"; };
 		A666BA9521BF56F600F078F0 /* DiningHallsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiningHallsViewController.xib; sourceTree = "<group>"; };
+		A67DA85D21C0B0B80011D91B /* DiningHallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallTableViewCell.swift; sourceTree = "<group>"; };
+		A67DA85E21C0B0B80011D91B /* DiningHallTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiningHallTableViewCell.xib; sourceTree = "<group>"; };
 		A6F34EE321BA158200CD3B32 /* DiningPaws.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiningPaws.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6F34EE621BA158200CD3B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6F34EED21BA158300CD3B32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				A666BA9521BF56F600F078F0 /* DiningHallsViewController.xib */,
+				A67DA85E21C0B0B80011D91B /* DiningHallTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				A666BA9421BF56F600F078F0 /* DiningHallsViewController.swift */,
+				A67DA85D21C0B0B80011D91B /* DiningHallTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,6 +249,7 @@
 				A6F34EEE21BA158300CD3B32 /* Assets.xcassets in Resources */,
 				A666BA9721BF56F600F078F0 /* DiningHallsViewController.xib in Resources */,
 				A6FE50E021BEF8C10071C67F /* Default-568h@2x.png in Resources */,
+				A67DA86021C0B0B80011D91B /* DiningHallTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +272,7 @@
 				A6FE50D921BEE1EC0071C67F /* DiningPaws+Date.swift in Sources */,
 				A6F34F0E21BA1C5400CD3B32 /* Meal.swift in Sources */,
 				A6F34F0921BA1A4900CD3B32 /* DiningHall.swift in Sources */,
+				A67DA85F21C0B0B80011D91B /* DiningHallTableViewCell.swift in Sources */,
 				A6F34EE721BA158200CD3B32 /* AppDelegate.swift in Sources */,
 				A6F34F0C21BA1C4500CD3B32 /* Day.swift in Sources */,
 				A6F34F1221BA229000CD3B32 /* HTMLParser.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Day: NSCoding {
+class Day: NSObject, NSCoding {
     
     let date: Date
     let meals: [Meal]

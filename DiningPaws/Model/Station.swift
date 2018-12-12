@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Station: NSCoding {
+class Station: NSObject, NSCoding {
     
     let name: String
     let options: [String]

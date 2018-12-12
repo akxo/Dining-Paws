@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Meal: NSCoding {
+class Meal: NSObject, NSCoding {
     
     let name: String
     let stations: [Station]

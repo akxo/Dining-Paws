@@ -65,7 +65,7 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     
     // MARK: tableview methods
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
+        return 80
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A60D259221C2069000F2BA0D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D259121C2069000F2BA0D /* User.swift */; };
 		A610F77121BC123700A98DCD /* UConn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610F77021BC123700A98DCD /* UConn.swift */; };
 		A666BA9621BF56F600F078F0 /* DiningHallsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A666BA9421BF56F600F078F0 /* DiningHallsViewController.swift */; };
 		A666BA9721BF56F600F078F0 /* DiningHallsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A666BA9521BF56F600F078F0 /* DiningHallsViewController.xib */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A60D259121C2069000F2BA0D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A610F77021BC123700A98DCD /* UConn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UConn.swift; path = DiningPaws/Model/UConn.swift; sourceTree = SOURCE_ROOT; };
 		A666BA9421BF56F600F078F0 /* DiningHallsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallsViewController.swift; sourceTree = "<group>"; };
 		A666BA9521BF56F600F078F0 /* DiningHallsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiningHallsViewController.xib; sourceTree = "<group>"; };
@@ -80,6 +82,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A605F72221C211EA0055D618 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A605F72321C211F70055D618 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		A6F34EDA21BA158200CD3B32 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +129,7 @@
 		A6F34F0A21BA1C2000CD3B32 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A60D259121C2069000F2BA0D /* User.swift */,
 				A6F34F1521BA261A00CD3B32 /* Campus.swift */,
 				A6F34F0821BA1A4900CD3B32 /* DiningHall.swift */,
 				A6F34F0B21BA1C4500CD3B32 /* Day.swift */,
@@ -158,6 +175,8 @@
 		A6FE50E621BEFC2D0071C67F /* DiningPawsTests */ = {
 			isa = PBXGroup;
 			children = (
+				A605F72221C211EA0055D618 /* Model */,
+				A605F72321C211F70055D618 /* Controller */,
 				A6FE50E721BEFC2D0071C67F /* DiningPawsTests.swift */,
 				A6FE50E921BEFC2D0071C67F /* Info.plist */,
 			);
@@ -267,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A60D259221C2069000F2BA0D /* User.swift in Sources */,
 				A6F34F1621BA261A00CD3B32 /* Campus.swift in Sources */,
 				A666BA9621BF56F600F078F0 /* DiningHallsViewController.swift in Sources */,
 				A6FE50D921BEE1EC0071C67F /* DiningPaws+Date.swift in Sources */,

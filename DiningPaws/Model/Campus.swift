@@ -74,7 +74,6 @@ class Campus: NSObject, NSCoding {
     
     func save() {
         do {
-
             let campusData = try NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: false)
             UserDefaults.standard.set(campusData, forKey: "campusData")
         } catch let error {

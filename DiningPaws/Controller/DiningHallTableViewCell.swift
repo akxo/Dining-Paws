@@ -17,10 +17,15 @@ class DiningHallTableViewCell: UITableViewCell {
     static let cellID = "DiningHallCellID"
     var diningHall: DiningHall! {
         didSet {
-            nameLabel.text = diningHall.name
-            statusLabel.text = "CLOSED"
-            favoriteImage.isHidden = false
+            updateView()
         }
+    }
+    
+    private func updateView() {
+        nameLabel.text = diningHall.name
+        statusLabel.text = UConn.status(for: diningHall)
+        statusLabel.textColor = statusLabel.text == "CLOSED" ? UIColor.red : UIColor.darkGray
+        favoriteImage.isHidden = false
     }
     
     override func awakeFromNib() {

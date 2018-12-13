@@ -12,9 +12,10 @@ import UIKit
 struct UConn {
     
     static let lateNightDiningHalls = ["McMahon", "Northwest", "Whitney"]
-    static let lateNightWeekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"]
-    static let weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-    static let weeknds = ["Saturday", "Sunday"]
+    // sunday = 1, monday = 2, etc.
+    static let lateNightWeekdays = ["1", "2", "3", "4", "5"]
+    static let weekdays = ["2", "3", "4", "5", "6"]
+    static let weeknds = ["7", "1"]
     
     static let primaryColor: UIColor = #colorLiteral(red: 0, green: 0.05490196078, blue: 0.1843137255, alpha: 0.800593964)
     static let secondaryColor: UIColor = #colorLiteral(red: 0.4862745098, green: 0.5294117647, blue: 0.5568627451, alpha: 0.7963934075)
@@ -75,7 +76,3 @@ struct UConn {
         return "CLOSED"
     }
 }
-//Breakfast: 7:00am - 10:45am
-//Lunch: 11:00am - 2:15pm
-//Between Meals: 2:15pm - 4:15pm (McMahon closes Mon. - Fri. at 2:15pm and re-opens at 3:45pm)
-//Dinner: 4:15pm - 7:15pm*

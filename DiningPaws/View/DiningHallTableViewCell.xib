@@ -32,10 +32,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filledStar" translatesAutoresizingMaskIntoConstraints="NO" id="ggV-k6-fpd">
-                        <rect key="frame" x="299" y="32.5" width="20" height="20"/>
+                        <rect key="frame" x="294" y="30" width="25" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="giv-Yf-Yez"/>
-                            <constraint firstAttribute="width" constant="20" id="pnd-YW-jjo"/>
+                            <constraint firstAttribute="height" constant="25" id="giv-Yf-Yez"/>
+                            <constraint firstAttribute="width" constant="25" id="pnd-YW-jjo"/>
                         </constraints>
                     </imageView>
                 </subviews>

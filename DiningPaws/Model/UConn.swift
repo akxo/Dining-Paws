@@ -56,23 +56,23 @@ struct UConn {
         }
         if (hour < 10 || (hour == 10 && minute < 45)), weekdays.contains(weekday) { return "Breakfast" }
         if hour < 11, weekday.contains(weekday) { return "Between Meals" }
-        if (hour < 2 || (hour == 2 && minute < 15)) {
+        if (hour < 14 || (hour == 14 && minute < 15)) {
             if weeknds.contains(weekday) {
                 return "Brunch"
             } else {
                 return "Lunch"
             }
         }
-        if (hour < 3 || (hour == 3 && minute < 45)), diningHall.name == "McMahon" { return "CLOSED" }
-        if (hour < 4 || (hour == 4 && minute < 15)) {
+        if (hour < 15 || (hour == 15 && minute < 45)), diningHall.name == "McMahon" { return "CLOSED" }
+        if (hour < 16 || (hour == 16 && minute < 15)) {
             if diningHall.name == "McMahon" {
                 return "Dinner"
             } else {
                 return "Between Meals"
             }
         }
-        if (hour < 7 || (hour == 7 && minute < 15)) { return "Dinner" }
-        if hour < 10, lateNightWeekdays.contains(weekday), lateNightDiningHalls.contains(diningHall.name) { return "Late Night" }
+        if (hour < 19 || (hour == 19 && minute < 15)) { return "Dinner" }
+        if hour < 22, lateNightWeekdays.contains(weekday), lateNightDiningHalls.contains(diningHall.name) { return "Late Night" }
         return "CLOSED"
     }
 }

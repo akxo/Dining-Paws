@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DiningPaws/Model/UConn.swift"
-            timestampString = "566403730.9405971"
+            filePath = "DiningPaws/Controller/DiningHallsViewController.swift"
+            timestampString = "566444556.419809"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "status(for:)"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "scrollViewDidEndDecelerating(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

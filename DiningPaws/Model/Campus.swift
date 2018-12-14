@@ -63,6 +63,17 @@ class Campus: NSObject, NSCoding {
         save()
     }
     
+    func cleanUp() {
+        let today = Date()
+        guard !(lastLoadDate?.isEqualTo(today) ?? false) else { return }
+        
+        for diningHall in diningHalls {
+            while !diningHall.days.isEmpty, !diningHall.days.first!.date.isEqualTo(today) {
+                diningHall.days.removeFirst()
+            }
+        }
+    }
+    
     func addDay(for date: Date) {
         for diningHall in diningHalls {
             let nextDay = MenuClient.shared.day(for: date, at: diningHall)

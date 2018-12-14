@@ -24,8 +24,8 @@ class DiningHallTableViewCell: UITableViewCell {
     private func updateView() {
         nameLabel.text = diningHall.name
         statusLabel.text = UConn.status(for: diningHall)
-        statusLabel.textColor = statusLabel.text == "CLOSED" ? UIColor.red : UIColor.darkGray
-        favoriteImage.isHidden = false
+        statusLabel.textColor = statusLabel.text == "CLOSED" ? UIColor.red : UIColor.black
+        favoriteImage.isHidden = true
     }
     
     override func awakeFromNib() {

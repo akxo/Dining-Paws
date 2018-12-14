@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DiningHallsViewController" customModule="DiningPaws" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DayViewController" customModule="DiningPaws" customModuleProvider="target">
             <connections>
                 <outlet property="dateLabel" destination="t0e-Ot-QNr" id="iNx-qk-5ay"/>
                 <outlet property="diningHallsTableView" destination="lNg-0r-E1d" id="i84-TG-7VA"/>

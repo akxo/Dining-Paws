@@ -33,18 +33,28 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        refreshControl = UIRefreshControl()
-        diningHallsTableView.addSubview(refreshControl)
-        diningHallsTableView.contentOffset = CGPoint(x: 0, y: -self.refreshControl.frame.size.height)
-        refreshControl.beginRefreshing()
+        setupRefreshView()
+        dateLabel.text = date.description
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        // TODO: check if campus has a day with date or index and add day if not
-        refreshControl.endRefreshing()
+        let count = campus.diningHalls.reduce(0, { (count, diningHall) in
+            count + (diningHall.days.contains(where: { $0.date.isEqual(to: self.date) }) ? 1 : 0)
+        })
+        guard count < 8 else {
+            refreshControl.endRefreshing()
+            return
+        }
+        diningHallsTableView.contentOffset = CGPoint(x: 0, y: -self.refreshControl.frame.size.height)
+        refreshControl.beginRefreshing()
+        DispatchQueue.global(qos: .background).async {
+            self.campus.addDay(for: self.date, completion: {
+                DispatchQueue.main.async {
+                    self.diningHallsTableView.reloadData()
+                    self.refreshControl.endRefreshing()
+                }
+            })
+        }
     }
     
     // MARK: initial setup
@@ -53,6 +63,11 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         diningHallsTableView.dataSource = self
         let tableViewCellNib = UINib(nibName: "DiningHallTableViewCell", bundle: nil)
         diningHallsTableView.register(tableViewCellNib, forCellReuseIdentifier: DiningHallTableViewCell.cellID)
+    }
+    
+    private func setupRefreshView() {
+        refreshControl = UIRefreshControl()
+        diningHallsTableView.addSubview(refreshControl)
     }
     
     // MARK: tableview methods

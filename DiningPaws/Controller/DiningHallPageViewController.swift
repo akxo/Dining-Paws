@@ -13,9 +13,20 @@ class DiningHallPageViewController: UIPageViewController, UIPageViewControllerDe
     lazy var campus: Campus = loadCampus()
     lazy var days: [UIViewController] = initializeDays()
     
+    init() {
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: [:])
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         setupPageView()
     }
     
@@ -31,15 +42,15 @@ class DiningHallPageViewController: UIPageViewController, UIPageViewControllerDe
         self.definesPresentationContext = true
         searchController.searchBar.tintColor = .white
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        view.backgroundColor = .white
     }
     
     private func setupPageView() {
-        view.backgroundColor = .white
         self.dataSource = self
         self.delegate = self
         guard let firstViewController = days.first as? DayViewController else { return }
         firstViewController.campus = campus
-        setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
+        setViewControllers([firstViewController], direction: .forward, animated: false, completion: nil)
     }
     
     // MARK: initial data setup
@@ -70,13 +81,17 @@ class DiningHallPageViewController: UIPageViewController, UIPageViewControllerDe
         guard let currentIndex = days.index(of: viewController) else { return nil }
         let previousIndex = currentIndex - 1
         guard previousIndex >= 0 else { return nil }
-        return days[previousIndex]
+        let viewController = days[previousIndex] as? DayViewController
+        viewController?.campus = campus
+        return viewController
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let currentIndex = days.index(of: viewController) else { return nil }
         let nextIndex = currentIndex + 1
         guard days.count > nextIndex else { return nil }
+        let viewController = days[nextIndex] as? DayViewController
+        viewController?.campus = campus
         return days[nextIndex]
     }
 }

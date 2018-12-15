@@ -11,18 +11,18 @@ import Foundation
 class User: NSObject, NSCoding {
 
     var favorites: [String]
-    var enabledFavorites: [String] /* change to a set? */
+    var enabledFavorites: Set<String>
     
 //    var homeDiningHall: String?
 //    var locationBasedLoadIsEnabled: Bool
 //    var location: CLLocation
     
     static var currentUser: User {
-        return loadCurrentUser() ?? User(favorites: [], enabledFavorites: [])
+        return loadCurrentUser() ?? User(favorites: [], enabledFavorites: Set<String>())
     }
     
     // MARK: init
-    init(favorites: [String], enabledFavorites: [String]) {
+    init(favorites: [String], enabledFavorites: Set<String>) {
         self.favorites = favorites
         self.enabledFavorites = enabledFavorites
     }
@@ -40,7 +40,7 @@ class User: NSObject, NSCoding {
     
     required convenience init?(coder aDecoder: NSCoder) {
         guard let favorites = aDecoder.decodeObject(forKey: Key.favorites.rawValue) as? [String],
-            let enabledFavorites = aDecoder.decodeObject(forKey: Key.enabledFavorites.rawValue) as? [String] else { return nil }
+            let enabledFavorites = aDecoder.decodeObject(forKey: Key.enabledFavorites.rawValue) as? Set<String> else { return nil }
         self.init(favorites: favorites, enabledFavorites: enabledFavorites)
     }
     
@@ -58,6 +58,7 @@ class User: NSObject, NSCoding {
     public func add(_ favorite: String) {
         guard !favorites.map({ $0.lowercased() }).contains(favorite.lowercased()) else { return }
         favorites.append(favorite)
+        enabledFavorites.insert(favorite)
         favorites.sort()
         save()
     }
@@ -65,14 +66,15 @@ class User: NSObject, NSCoding {
     public func remove(_ favorite: String) {
         guard let index = favorites.firstIndex(of: favorite) else { return }
         favorites.remove(at: index)
+        enabledFavorites.remove(favorite)
         save()
     }
     
     public func changeStatus(for favorite: String) {
-        if let index = enabledFavorites.firstIndex(of: favorite) {
-            enabledFavorites.remove(at: index)
+        if enabledFavorites.contains(favorite) {
+            enabledFavorites.remove(favorite)
         } else {
-            enabledFavorites.append(favorite)
+            enabledFavorites.insert(favorite)
         }
         save()
     }

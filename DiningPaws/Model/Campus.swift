@@ -48,39 +48,41 @@ class Campus: NSObject, NSCoding {
     
     func loadToday() {
         let today = Date()
-        guard !(lastLoadDate?.isEqualTo(today) ?? false) else { return }
+        guard !(lastLoadDate?.isEqual(to: today) ?? false) else { return }
         
         for diningHall in diningHalls {
-            while !diningHall.days.isEmpty, !diningHall.days.first!.date.isEqualTo(today) {
+            while !diningHall.days.isEmpty, !diningHall.days.first!.date.isEqual(to: today) {
                 diningHall.days.removeFirst()
             }
         }
         if diningHalls.first?.days.isEmpty ?? true {
-            self.addDay(for: today)
+            self.addDay(for: today, completion: nil)
         }
-        guard !(lastLoadDate?.isEqualTo(today) ?? false) else { return }
+        guard !(lastLoadDate?.isEqual(to: today) ?? false) else { return }
         lastLoadDate = today
         save()
     }
     
     func cleanUp() {
         let today = Date()
-        guard !(lastLoadDate?.isEqualTo(today) ?? false) else { return }
+        guard !(lastLoadDate?.isEqual(to: today) ?? false) else { return }
         
         for diningHall in diningHalls {
-            while !diningHall.days.isEmpty, !diningHall.days.first!.date.isEqualTo(today) {
+            while !diningHall.days.isEmpty, !diningHall.days.first!.date.isEqual(to: today) {
                 diningHall.days.removeFirst()
             }
         }
     }
     
-    func addDay(for date: Date) {
+    func addDay(for date: Date, completion: (() -> Void)?) {
         for diningHall in diningHalls {
+            guard !diningHall.days.contains(where: { $0.date.isEqual(to: date) }) else { continue }
             let nextDay = MenuClient.shared.day(for: date, at: diningHall)
             diningHall.days.append(nextDay)
         }
         lastLoadDate = Date()
         save()
+        completion?()
     }
     
     func save() {

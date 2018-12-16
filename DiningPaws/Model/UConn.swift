@@ -32,11 +32,15 @@ struct UConn {
         return [buckley, mcmahon, north, northwest, putnam, south, towers, whitney]
     }
     
-    static func status(for diningHall: DiningHall) -> String {
-        let date = Date()
-        let weekday = date.weekday
-        let hour = date.hour
-        let minute = date.minute
+    static func status(for diningHall: DiningHall, on date: Date) -> String {
+        if let day = diningHall.day(for: date), day.meals.isEmpty {
+            return "CLOSED"
+        }
+        
+        let today = Date()
+        let weekday = today.weekday
+        let hour = today.hour
+        let minute = today.minute
         
         guard hour >= 7 else { return "CLOSED" }
         if hour < 8, weekday == "Sunday" { return "CLOSED" }

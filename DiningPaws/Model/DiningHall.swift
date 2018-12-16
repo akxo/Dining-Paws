@@ -45,4 +45,8 @@ class DiningHall: NSObject, NSCoding {
         case locationName = "locationName"
         case days = "days"
     }
+    
+    func day(for date: Date) -> Day? {
+        return days.first(where: { $0.date.isEqual(to: date) })
+    }
 }

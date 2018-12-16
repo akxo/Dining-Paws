@@ -1,5 +1,5 @@
 //
-//  DiningHallPageViewController.swift
+//  CampusPageViewController.swift
 //  DiningPaws
 //
 //  Created by Alexander Kerendian on 12/13/18.
@@ -8,10 +8,11 @@
 
 import UIKit
 
-class DiningHallPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+class CampusPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     lazy var campus: Campus = loadCampus()
     lazy var days: [UIViewController] = initializeDays()
+    var currentIndex = 0
     
     init() {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: [:])
@@ -24,6 +25,7 @@ class DiningHallPageViewController: UIPageViewController, UIPageViewControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        setupNavigationButtons()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,10 +47,19 @@ class DiningHallPageViewController: UIPageViewController, UIPageViewControllerDe
         view.backgroundColor = .white
     }
     
+    private func setupNavigationButtons() {
+        let favoritesButton = UIBarButtonItem(image: UIImage(named: "filledStar"), style: .plain, target: self, action: #selector(favoritesButtonTapped))
+        favoritesButton.tintColor = .white
+        self.navigationItem.rightBarButtonItem = favoritesButton
+        let settingsButton = UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(settingsButtonTapped))
+        settingsButton.tintColor = .white
+        self.navigationItem.leftBarButtonItem = settingsButton
+    }
+    
     private func setupPageView() {
         self.dataSource = self
         self.delegate = self
-        guard let firstViewController = days.first as? DayViewController else { return }
+        guard let firstViewController = days.first as? DiningHallsViewController else { return }
         firstViewController.campus = campus
         setViewControllers([firstViewController], direction: .forward, animated: false, completion: nil)
     }
@@ -66,12 +77,20 @@ class DiningHallPageViewController: UIPageViewController, UIPageViewControllerDe
         }
     }
     
-    private func initializeDays() -> [DayViewController] {
+    private func initializeDays() -> [DiningHallsViewController] {
         let today = Date()
-        var days = [DayViewController(date: today)]
-        for numDays in 1..<7 {
-            guard let nextDate = Calendar.current.date(byAdding: .day, value: numDays, to: today) else { continue }
-            days += [DayViewController(date: nextDate)]
+        var days = [DiningHallsViewController]()
+        for numDay in 0..<7 {
+            guard let nextDate = Calendar.current.date(byAdding: .day, value: numDay, to: today) else { continue }
+            let diningHallsViewController = DiningHallsViewController(date: nextDate, index: numDay)
+            diningHallsViewController.swipe = { offset in
+                self.currentIndex += offset
+                let direction: NavigationDirection = offset > 0 ? .forward : .reverse
+                let nextViewController = self.days[self.currentIndex] as! DiningHallsViewController
+                nextViewController.campus = self.campus
+                self.setViewControllers([nextViewController], direction: direction, animated: true, completion: nil)
+            }
+            days.append(diningHallsViewController)
         }
         return days
     }
@@ -81,8 +100,9 @@ class DiningHallPageViewController: UIPageViewController, UIPageViewControllerDe
         guard let currentIndex = days.index(of: viewController) else { return nil }
         let previousIndex = currentIndex - 1
         guard previousIndex >= 0 else { return nil }
-        let viewController = days[previousIndex] as? DayViewController
+        let viewController = days[previousIndex] as? DiningHallsViewController
         viewController?.campus = campus
+        self.currentIndex = previousIndex
         return viewController
     }
     
@@ -90,8 +110,18 @@ class DiningHallPageViewController: UIPageViewController, UIPageViewControllerDe
         guard let currentIndex = days.index(of: viewController) else { return nil }
         let nextIndex = currentIndex + 1
         guard days.count > nextIndex else { return nil }
-        let viewController = days[nextIndex] as? DayViewController
+        let viewController = days[nextIndex] as? DiningHallsViewController
         viewController?.campus = campus
+        self.currentIndex = nextIndex
         return days[nextIndex]
+    }
+    
+    @objc private func favoritesButtonTapped() {
+        let favoritesTableViewController = FavoritesTableViewController()
+        self.navigationController?.pushViewController(favoritesTableViewController, animated: true)
+    }
+    
+    @objc private func settingsButtonTapped() {
+        
     }
 }

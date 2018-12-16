@@ -19,15 +19,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="351" height="84.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gML-K6-0LE">
+                        <rect key="frame" x="32" y="19" width="0.0" height="46.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="North" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1g-lW-hR7">
-                        <rect key="frame" x="32" y="19" width="49.5" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <rect key="frame" x="32" y="19" width="61.5" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLOSED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AoV-ao-mwe">
-                        <rect key="frame" x="32" y="48" width="58.5" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <rect key="frame" x="32" y="45.5" width="65.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="1" green="0.0093617555427757404" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -42,9 +48,12 @@
                 <constraints>
                     <constraint firstItem="C1g-lW-hR7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="02D-pi-KOv"/>
                     <constraint firstItem="ggV-k6-fpd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="3TR-B1-awI"/>
+                    <constraint firstItem="gML-K6-0LE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="4ya-6w-mcg"/>
+                    <constraint firstItem="gML-K6-0LE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7YI-XB-tR7"/>
                     <constraint firstAttribute="bottomMargin" secondItem="AoV-ao-mwe" secondAttribute="bottom" constant="8" id="ZPj-nn-Cwc"/>
                     <constraint firstItem="C1g-lW-hR7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="bqq-Ht-K5w"/>
                     <constraint firstItem="AoV-ao-mwe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="g7p-QW-2mX"/>
+                    <constraint firstItem="gML-K6-0LE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="mvz-Pl-2X2"/>
                     <constraint firstAttribute="trailing" secondItem="ggV-k6-fpd" secondAttribute="trailing" constant="32" id="whI-vy-6sh"/>
                 </constraints>
             </tableViewCellContentView>
@@ -52,6 +61,7 @@
             <connections>
                 <outlet property="favoriteImage" destination="ggV-k6-fpd" id="t2W-Q2-JEK"/>
                 <outlet property="nameLabel" destination="C1g-lW-hR7" id="W82-Vc-Yav"/>
+                <outlet property="noStatusNameLabel" destination="gML-K6-0LE" id="VIl-OH-88p"/>
                 <outlet property="statusLabel" destination="AoV-ao-mwe" id="kDE-A8-9oT"/>
             </connections>
             <point key="canvasLocation" x="77.599999999999994" y="43.628185907046479"/>

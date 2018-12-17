@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MealSelectionBarCell" customModule="DiningPaws" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="187" height="64"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="187" height="64"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvE-eX-tJl">
+                        <rect key="frame" x="72.5" y="22" width="42" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filledStar" translatesAutoresizingMaskIntoConstraints="NO" id="1ih-M9-Vdd">
+                        <rect key="frame" x="119.5" y="25.5" width="13" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="13" id="g6u-SR-IqT"/>
+                            <constraint firstAttribute="height" constant="13" id="ygX-Ex-HqX"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="uvE-eX-tJl" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="5Kv-If-WOU"/>
+                <constraint firstItem="1ih-M9-Vdd" firstAttribute="leading" secondItem="uvE-eX-tJl" secondAttribute="trailing" constant="5" id="AiE-KG-Zsw"/>
+                <constraint firstItem="1ih-M9-Vdd" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="BRt-cn-1jm"/>
+                <constraint firstItem="uvE-eX-tJl" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="bpi-Qf-PH1"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="187" height="64"/>
+            <connections>
+                <outlet property="favoriteImageView" destination="1ih-M9-Vdd" id="AOS-1C-zVa"/>
+                <outlet property="mealNameLabel" destination="uvE-eX-tJl" id="9MF-Ej-Z99"/>
+            </connections>
+            <point key="canvasLocation" x="162.40000000000001" y="54.872563718140931"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="filledStar" width="180" height="180"/>
+    </resources>
+</document>

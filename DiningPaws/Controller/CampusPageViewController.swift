@@ -26,9 +26,6 @@ class CampusPageViewController: UIPageViewController, UIPageViewControllerDelega
         super.viewDidLoad()
         setupNavigationBar()
         setupNavigationButtons()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         setupPageView()
     }
     

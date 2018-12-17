@@ -102,8 +102,10 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = UIViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let diningHall = campus.diningHalls[indexPath.row]
+        let day = diningHall.days[index]
+        let dayViewController = DayViewController(diningHallName: diningHall.name, day: day)
+        self.navigationController?.pushViewController(dayViewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

@@ -29,6 +29,8 @@
 		A666BA9721BF56F600F078F0 /* DiningHallsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A666BA9521BF56F600F078F0 /* DiningHallsViewController.xib */; };
 		A67DA85F21C0B0B80011D91B /* DiningHallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67DA85D21C0B0B80011D91B /* DiningHallTableViewCell.swift */; };
 		A67DA86021C0B0B80011D91B /* DiningHallTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A67DA85E21C0B0B80011D91B /* DiningHallTableViewCell.xib */; };
+		A681C35421C6CF85002A44E4 /* MealSelectionBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A681C35221C6CF85002A44E4 /* MealSelectionBarCell.swift */; };
+		A681C35521C6CF85002A44E4 /* MealSelectionBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A681C35321C6CF85002A44E4 /* MealSelectionBarCell.xib */; };
 		A6F34EE721BA158200CD3B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F34EE621BA158200CD3B32 /* AppDelegate.swift */; };
 		A6F34EEE21BA158300CD3B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6F34EED21BA158300CD3B32 /* Assets.xcassets */; };
 		A6F34EF121BA158300CD3B32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6F34EEF21BA158300CD3B32 /* LaunchScreen.storyboard */; };
@@ -76,6 +78,8 @@
 		A666BA9521BF56F600F078F0 /* DiningHallsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiningHallsViewController.xib; sourceTree = "<group>"; };
 		A67DA85D21C0B0B80011D91B /* DiningHallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallTableViewCell.swift; sourceTree = "<group>"; };
 		A67DA85E21C0B0B80011D91B /* DiningHallTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiningHallTableViewCell.xib; sourceTree = "<group>"; };
+		A681C35221C6CF85002A44E4 /* MealSelectionBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSelectionBarCell.swift; sourceTree = "<group>"; };
+		A681C35321C6CF85002A44E4 /* MealSelectionBarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealSelectionBarCell.xib; sourceTree = "<group>"; };
 		A6F34EE321BA158200CD3B32 /* DiningPaws.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiningPaws.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6F34EE621BA158200CD3B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6F34EED21BA158300CD3B32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 				A67DA85E21C0B0B80011D91B /* DiningHallTableViewCell.xib */,
 				A66533B821C600E2002D65C8 /* FavoriteTableViewCell.swift */,
 				A66533B921C600E2002D65C8 /* FavoriteTableViewCell.xib */,
+				A681C35221C6CF85002A44E4 /* MealSelectionBarCell.swift */,
+				A681C35321C6CF85002A44E4 /* MealSelectionBarCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,10 +224,10 @@
 		A6FE50DC21BEE9680071C67F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A66533B621C5FC2B002D65C8 /* FavoritesTableViewController.swift */,
 				A643AEE021C350E900C17808 /* CampusPageViewController.swift */,
 				A666BA9421BF56F600F078F0 /* DiningHallsViewController.swift */,
 				A66533B221C5FB09002D65C8 /* DayViewController.swift */,
-				A66533B621C5FC2B002D65C8 /* FavoritesTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 				A6F34EF121BA158300CD3B32 /* LaunchScreen.storyboard in Resources */,
 				A6F34EEE21BA158300CD3B32 /* Assets.xcassets in Resources */,
 				A666BA9721BF56F600F078F0 /* DiningHallsViewController.xib in Resources */,
+				A681C35521C6CF85002A44E4 /* MealSelectionBarCell.xib in Resources */,
 				A66533B521C5FB09002D65C8 /* DayViewController.xib in Resources */,
 				A6FE50E021BEF8C10071C67F /* Default-568h@2x.png in Resources */,
 				A66533BB21C600E2002D65C8 /* FavoriteTableViewCell.xib in Resources */,
@@ -362,6 +369,7 @@
 				A6F34F0C21BA1C4500CD3B32 /* Day.swift in Sources */,
 				A6F34F1221BA229000CD3B32 /* HTMLParser.swift in Sources */,
 				A6F34F1021BA1D5800CD3B32 /* Station.swift in Sources */,
+				A681C35421C6CF85002A44E4 /* MealSelectionBarCell.swift in Sources */,
 				A66533B421C5FB09002D65C8 /* DayViewController.swift in Sources */,
 				A610F77121BC123700A98DCD /* UConn.swift in Sources */,
 				A6F34F0721BA186D00CD3B32 /* MenuClient.swift in Sources */,

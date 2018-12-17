@@ -29,11 +29,11 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dec 11, 2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0e-Ot-QNr">
-                    <rect key="frame" x="139" y="30" width="97" height="25"/>
+                    <rect key="frame" x="75" y="30" width="225" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="nO8-nC-25I"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -73,8 +73,10 @@
                 <constraint firstItem="lNg-0r-E1d" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="PXf-dg-9Wo"/>
                 <constraint firstItem="lNg-0r-E1d" firstAttribute="top" secondItem="t0e-Ot-QNr" secondAttribute="bottom" constant="8" id="QoX-Pa-Rq8"/>
                 <constraint firstItem="lNg-0r-E1d" firstAttribute="top" secondItem="ioX-6G-Nnk" secondAttribute="bottom" id="ayi-iv-uVM"/>
+                <constraint firstItem="t0e-Ot-QNr" firstAttribute="leading" secondItem="ioX-6G-Nnk" secondAttribute="trailing" id="cHm-zt-PUo"/>
                 <constraint firstItem="t0e-Ot-QNr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ddV-Aa-cZJ"/>
                 <constraint firstItem="V3o-1j-OIp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ejG-XQ-rZL"/>
+                <constraint firstItem="V3o-1j-OIp" firstAttribute="leading" secondItem="t0e-Ot-QNr" secondAttribute="trailing" id="gho-o8-Lnv"/>
                 <constraint firstItem="ioX-6G-Nnk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="kP7-L9-u3x"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lNg-0r-E1d" secondAttribute="trailing" id="pOC-e3-KRs"/>
                 <constraint firstItem="ioX-6G-Nnk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="vpg-mh-gwp"/>

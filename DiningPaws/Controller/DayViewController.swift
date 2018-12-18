@@ -21,10 +21,12 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
     
     let diningHallName: String
     let day: Day
+    let initialMealIndex: Int
     
-    init(diningHallName: String, day: Day) {
+    init(diningHallName: String, day: Day, initialMealIndex: Int) {
         self.diningHallName = diningHallName
         self.day = day
+        self.initialMealIndex = initialMealIndex
         super.init(nibName: "DayViewController", bundle: Bundle(for: DiningHallsViewController.self))
     }
     
@@ -36,18 +38,11 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         super.viewDidLoad()
         setupNavigationBar()
         setupSubViews()
+        setupMealSelectionBar()
+        setupMealCollectionView()
         
-        
-        mealSelectionBar.delegate = self
-        mealSelectionBar.dataSource = self
-        let mealSelectionBarCellNib = UINib(nibName: "MealSelectionBarCell", bundle: nil)
-        mealSelectionBar.register(mealSelectionBarCellNib, forCellWithReuseIdentifier: MealSelectionBarCell.cellID)
-        
-        let indexPath = IndexPath(item: 0, section: 0)
-        mealSelectionBar.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
-        guard let cell = mealSelectionBar.cellForItem(at: indexPath) else { return }
-        cell.isSelected = true
-        
+        guard day.meals.count > 0 else { return }
+        selectInitialMealIndex()
     }
     
     private func setupNavigationBar() {
@@ -66,9 +61,36 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
     }
     
     private func setupSubViews() {
+        let hasMeals = day.meals.count > 0
         dateLabel.text = day.date.description
-        mealSelectionBar.isHidden = day.meals.isEmpty
+        mealSelectionBar.isHidden = !hasMeals
+        horizontalBarView.isHidden = !hasMeals
+        guard hasMeals else { return }
         horizontalBarWidth.constant = mealSelectionBar.frame.size.width /  CGFloat(day.meals.count)
+    }
+    
+    private func setupMealSelectionBar() {
+        mealSelectionBar.delegate = self
+        mealSelectionBar.dataSource = self
+        let mealSelectionBarCellNib = UINib(nibName: "MealSelectionBarCell", bundle: nil)
+        mealSelectionBar.register(mealSelectionBarCellNib, forCellWithReuseIdentifier: MealSelectionBarCell.cellID)
+    }
+    
+    private func setupMealCollectionView() {
+        mealCollectionView.delegate = self
+        mealCollectionView.dataSource = self
+        let mealOptionsCellNib = UINib(nibName: "MealOptionsCell", bundle: nil)
+        mealCollectionView.register(mealOptionsCellNib, forCellWithReuseIdentifier: MealOptionsCell.cellID)
+    }
+    
+    private func selectInitialMealIndex() {
+        
+        let indexPath = IndexPath(item: initialMealIndex, section: 0)
+        mealSelectionBar.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
+        guard let cell = mealSelectionBar.cellForItem(at: indexPath) else { return }
+        cell.isSelected = true
+
+        mealCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -76,7 +98,11 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width / CGFloat(day.meals.count), height: collectionView.frame.size.height)
+        if collectionView == mealSelectionBar {
+            return CGSize(width: collectionView.frame.size.width / CGFloat(day.meals.count), height: collectionView.frame.size.height)
+        } else {
+            return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -84,14 +110,21 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealSelectionBarCell.cellID, for: indexPath) as? MealSelectionBarCell else { return UICollectionViewCell() }
-        cell.mealNameLabel.text = day.meals[indexPath.row].name
-        cell.mealNameLabel.textColor = UConn.secondaryColor
-        return cell
+        if collectionView == mealSelectionBar {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealSelectionBarCell.cellID, for: indexPath) as? MealSelectionBarCell else { return UICollectionViewCell() }
+            cell.mealNameLabel.text = day.meals[indexPath.row].name
+            cell.mealNameLabel.textColor = UConn.secondaryColor
+            return cell
+        } else if collectionView == mealCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealOptionsCell.cellID, for: indexPath) as? MealOptionsCell else { return UICollectionViewCell() }
+            cell.meal = day.meals[indexPath.row]
+            return cell
+        }
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) else { return }
+        guard collectionView == mealSelectionBar, let cell = collectionView.cellForItem(at: indexPath) as? MealSelectionBarCell else { return }
         cell.isSelected = true
         horizontalBarValueX.constant = (horizontalBarWidth.constant * CGFloat(indexPath.item)) + 5
     }

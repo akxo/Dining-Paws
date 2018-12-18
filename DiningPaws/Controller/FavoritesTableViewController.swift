@@ -41,7 +41,7 @@ class FavoritesTableViewController: UITableViewController {
     
     // MARK: table view methods
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
+        return 85
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

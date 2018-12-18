@@ -31,6 +31,10 @@
 		A67DA86021C0B0B80011D91B /* DiningHallTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A67DA85E21C0B0B80011D91B /* DiningHallTableViewCell.xib */; };
 		A681C35421C6CF85002A44E4 /* MealSelectionBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A681C35221C6CF85002A44E4 /* MealSelectionBarCell.swift */; };
 		A681C35521C6CF85002A44E4 /* MealSelectionBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A681C35321C6CF85002A44E4 /* MealSelectionBarCell.xib */; };
+		A6D01A0D21C885BC007BD8E1 /* MealOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D01A0B21C885BC007BD8E1 /* MealOptionsCell.swift */; };
+		A6D01A0E21C885BC007BD8E1 /* MealOptionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D01A0C21C885BC007BD8E1 /* MealOptionsCell.xib */; };
+		A6D01A1421C88A38007BD8E1 /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D01A1221C88A38007BD8E1 /* OptionTableViewCell.swift */; };
+		A6D01A1521C88A38007BD8E1 /* OptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D01A1321C88A38007BD8E1 /* OptionTableViewCell.xib */; };
 		A6F34EE721BA158200CD3B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F34EE621BA158200CD3B32 /* AppDelegate.swift */; };
 		A6F34EEE21BA158300CD3B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6F34EED21BA158300CD3B32 /* Assets.xcassets */; };
 		A6F34EF121BA158300CD3B32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6F34EEF21BA158300CD3B32 /* LaunchScreen.storyboard */; };
@@ -80,6 +84,10 @@
 		A67DA85E21C0B0B80011D91B /* DiningHallTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiningHallTableViewCell.xib; sourceTree = "<group>"; };
 		A681C35221C6CF85002A44E4 /* MealSelectionBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSelectionBarCell.swift; sourceTree = "<group>"; };
 		A681C35321C6CF85002A44E4 /* MealSelectionBarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealSelectionBarCell.xib; sourceTree = "<group>"; };
+		A6D01A0B21C885BC007BD8E1 /* MealOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealOptionsCell.swift; sourceTree = "<group>"; };
+		A6D01A0C21C885BC007BD8E1 /* MealOptionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealOptionsCell.xib; sourceTree = "<group>"; };
+		A6D01A1221C88A38007BD8E1 /* OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
+		A6D01A1321C88A38007BD8E1 /* OptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionTableViewCell.xib; sourceTree = "<group>"; };
 		A6F34EE321BA158200CD3B32 /* DiningPaws.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiningPaws.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6F34EE621BA158200CD3B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6F34EED21BA158300CD3B32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,6 +155,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A6D01A0F21C8897C007BD8E1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A666BA9521BF56F600F078F0 /* DiningHallsViewController.xib */,
+				A66533B321C5FB09002D65C8 /* DayViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A6D01A1021C889A3007BD8E1 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				A66533B821C600E2002D65C8 /* FavoriteTableViewCell.swift */,
+				A67DA85E21C0B0B80011D91B /* DiningHallTableViewCell.xib */,
+				A66533B921C600E2002D65C8 /* FavoriteTableViewCell.xib */,
+				A67DA85D21C0B0B80011D91B /* DiningHallTableViewCell.swift */,
+				A6D01A1221C88A38007BD8E1 /* OptionTableViewCell.swift */,
+				A6D01A1321C88A38007BD8E1 /* OptionTableViewCell.xib */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		A6D01A1121C889D0007BD8E1 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				A681C35221C6CF85002A44E4 /* MealSelectionBarCell.swift */,
+				A681C35321C6CF85002A44E4 /* MealSelectionBarCell.xib */,
+				A6D01A0B21C885BC007BD8E1 /* MealOptionsCell.swift */,
+				A6D01A0C21C885BC007BD8E1 /* MealOptionsCell.xib */,
+			);
+			name = CollectionViewCells;
+			sourceTree = "<group>";
+		};
 		A6F34EDA21BA158200CD3B32 = {
 			isa = PBXGroup;
 			children = (
@@ -209,14 +250,9 @@
 		A6FE50DB21BEE9510071C67F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A666BA9521BF56F600F078F0 /* DiningHallsViewController.xib */,
-				A66533B321C5FB09002D65C8 /* DayViewController.xib */,
-				A67DA85D21C0B0B80011D91B /* DiningHallTableViewCell.swift */,
-				A67DA85E21C0B0B80011D91B /* DiningHallTableViewCell.xib */,
-				A66533B821C600E2002D65C8 /* FavoriteTableViewCell.swift */,
-				A66533B921C600E2002D65C8 /* FavoriteTableViewCell.xib */,
-				A681C35221C6CF85002A44E4 /* MealSelectionBarCell.swift */,
-				A681C35321C6CF85002A44E4 /* MealSelectionBarCell.xib */,
+				A6D01A0F21C8897C007BD8E1 /* Controllers */,
+				A6D01A1021C889A3007BD8E1 /* TableViewCells */,
+				A6D01A1121C889D0007BD8E1 /* CollectionViewCells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -333,6 +369,8 @@
 			files = (
 				A6F34EF121BA158300CD3B32 /* LaunchScreen.storyboard in Resources */,
 				A6F34EEE21BA158300CD3B32 /* Assets.xcassets in Resources */,
+				A6D01A1521C88A38007BD8E1 /* OptionTableViewCell.xib in Resources */,
+				A6D01A0E21C885BC007BD8E1 /* MealOptionsCell.xib in Resources */,
 				A666BA9721BF56F600F078F0 /* DiningHallsViewController.xib in Resources */,
 				A681C35521C6CF85002A44E4 /* MealSelectionBarCell.xib in Resources */,
 				A66533B521C5FB09002D65C8 /* DayViewController.xib in Resources */,
@@ -356,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6D01A1421C88A38007BD8E1 /* OptionTableViewCell.swift in Sources */,
 				A60D259221C2069000F2BA0D /* User.swift in Sources */,
 				A6F34F1621BA261A00CD3B32 /* Campus.swift in Sources */,
 				A666BA9621BF56F600F078F0 /* DiningHallsViewController.swift in Sources */,
@@ -374,6 +413,7 @@
 				A610F77121BC123700A98DCD /* UConn.swift in Sources */,
 				A6F34F0721BA186D00CD3B32 /* MenuClient.swift in Sources */,
 				A643AEE221C350E900C17808 /* CampusPageViewController.swift in Sources */,
+				A6D01A0D21C885BC007BD8E1 /* MealOptionsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

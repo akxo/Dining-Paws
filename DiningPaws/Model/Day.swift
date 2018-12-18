@@ -35,4 +35,11 @@ class Day: NSObject, NSCoding {
         case date = "date"
         case meals = "meals"
     }
+    
+    func index(for mealName: String) -> Int? {
+         let index = meals.firstIndex(where: { $0.name == mealName })
+        if index != nil { return index }
+        if mealName == "Brunch" { return meals.firstIndex(where: { $0.name == "Lunch" }) }
+        return nil
+    }
 }

@@ -19,9 +19,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="379" height="60.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9I-BD-F4L">
-                        <rect key="frame" x="32" y="16" width="57" height="29"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9I-BD-F4L">
+                        <rect key="frame" x="32" y="19" width="270" height="23"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -34,6 +34,7 @@
                     </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="PQR-fo-kd8" firstAttribute="leading" secondItem="z9I-BD-F4L" secondAttribute="trailing" constant="20" id="2PL-ju-gJG"/>
                     <constraint firstItem="PQR-fo-kd8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Aag-WL-Qaa"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PQR-fo-kd8" secondAttribute="trailing" constant="16" id="CLn-er-moP"/>
                     <constraint firstItem="z9I-BD-F4L" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="RGd-3d-geK"/>

@@ -42,7 +42,7 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         setupMealCollectionView()
         
         guard day.meals.count > 0 else { return }
-        selectInitialMealIndex()
+        selectMeal(at: initialMealIndex)
     }
     
     private func setupNavigationBar() {
@@ -83,14 +83,10 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         mealCollectionView.register(mealOptionsCellNib, forCellWithReuseIdentifier: MealOptionsCell.cellID)
     }
     
-    private func selectInitialMealIndex() {
-        
-        let indexPath = IndexPath(item: initialMealIndex, section: 0)
-        mealSelectionBar.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
-        guard let cell = mealSelectionBar.cellForItem(at: indexPath) else { return }
-        cell.isSelected = true
-
-        mealCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
+    private func selectMeal(at index: Int) {
+        let indexPath = IndexPath(item: index, section: 0)
+        mealSelectionBar.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+        mealCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -124,12 +120,17 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard collectionView == mealSelectionBar, let cell = collectionView.cellForItem(at: indexPath) as? MealSelectionBarCell else { return }
-        cell.isSelected = true
-        horizontalBarValueX.constant = (horizontalBarWidth.constant * CGFloat(indexPath.item)) + 5
+        guard collectionView == mealSelectionBar else { return }
+        selectMeal(at: indexPath.item)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         horizontalBarValueX.constant = (horizontalBarWidth.constant * (scrollView.contentOffset.x / mealCollectionView.frame.size.width)) + 5
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let index = Int(targetContentOffset.pointee.x / mealCollectionView.frame.size.width)
+        let indexPath = IndexPath(item: index, section: 0)
+        mealSelectionBar.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
     }
 }

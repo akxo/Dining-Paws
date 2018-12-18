@@ -52,7 +52,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="q8J-Aa-HKB">
-                    <rect key="frame" x="0.0" y="102" width="375" height="565"/>
+                    <rect key="frame" x="0.0" y="104" width="375" height="563"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="S9h-P9-8Ny">
                         <size key="itemSize" width="50" height="50"/>
@@ -82,10 +82,10 @@
                 <constraint firstItem="q8J-Aa-HKB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Zqf-VT-4m2"/>
                 <constraint firstItem="Pnf-Zj-pDh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="bkl-00-5hT"/>
                 <constraint firstItem="eCQ-KD-Mdv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="fU6-MJ-Tun"/>
-                <constraint firstItem="q8J-Aa-HKB" firstAttribute="top" secondItem="eCQ-KD-Mdv" secondAttribute="bottom" constant="8" id="fWy-8z-6g2"/>
+                <constraint firstItem="q8J-Aa-HKB" firstAttribute="top" secondItem="eCQ-KD-Mdv" secondAttribute="bottom" constant="10" id="fWy-8z-6g2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="q8J-Aa-HKB" secondAttribute="trailing" id="gH3-io-KoS"/>
                 <constraint firstItem="yvg-o7-M1M" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="h9n-G7-OcS"/>
-                <constraint firstItem="q8J-Aa-HKB" firstAttribute="top" secondItem="Pnf-Zj-pDh" secondAttribute="bottom" constant="8" id="sAb-Tu-ir5"/>
+                <constraint firstItem="q8J-Aa-HKB" firstAttribute="top" secondItem="Pnf-Zj-pDh" secondAttribute="bottom" constant="10" id="sAb-Tu-ir5"/>
                 <constraint firstItem="8IL-sx-zXB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="txv-at-mnN"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

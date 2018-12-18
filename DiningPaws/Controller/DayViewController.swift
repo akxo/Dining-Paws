@@ -128,4 +128,8 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         cell.isSelected = true
         horizontalBarValueX.constant = (horizontalBarWidth.constant * CGFloat(indexPath.item)) + 5
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        horizontalBarValueX.constant = (horizontalBarWidth.constant * (scrollView.contentOffset.x / mealCollectionView.frame.size.width)) + 5
+    }
 }

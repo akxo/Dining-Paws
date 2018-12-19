@@ -37,4 +37,12 @@ class Meal: NSObject, NSCoding {
         case stations = "stations"
     }
     
+    func hasFavorite() -> Bool {
+        for station in stations {
+            for option in station.options {
+                if User.currentUser.enabledFavorites.contains(option) { return true }
+            }
+        }
+        return false
+    }
 }

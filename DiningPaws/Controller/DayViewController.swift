@@ -66,7 +66,7 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         mealSelectionBar.isHidden = !hasMeals
         horizontalBarView.isHidden = !hasMeals
         guard hasMeals else { return }
-        horizontalBarWidth.constant = mealSelectionBar.frame.size.width /  CGFloat(day.meals.count)
+        horizontalBarWidth.constant = (UIScreen.main.bounds.size.width - 10) /  CGFloat(day.meals.count)
     }
     
     private func setupMealSelectionBar() {
@@ -74,6 +74,7 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         mealSelectionBar.dataSource = self
         let mealSelectionBarCellNib = UINib(nibName: "MealSelectionBarCell", bundle: nil)
         mealSelectionBar.register(mealSelectionBarCellNib, forCellWithReuseIdentifier: MealSelectionBarCell.cellID)
+        mealSelectionBar.frame.size = CGSize(width: UIScreen.main.bounds.width - 10, height: 40)
     }
     
     private func setupMealCollectionView() {
@@ -81,6 +82,7 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         mealCollectionView.dataSource = self
         let mealOptionsCellNib = UINib(nibName: "MealOptionsCell", bundle: nil)
         mealCollectionView.register(mealOptionsCellNib, forCellWithReuseIdentifier: MealOptionsCell.cellID)
+        mealCollectionView.frame.size = CGSize(width: UIScreen.main.bounds.width, height: mealCollectionView.frame.size.height)
     }
     
     private func selectMeal(at index: Int) {
@@ -97,7 +99,7 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         if collectionView == mealSelectionBar {
             return CGSize(width: collectionView.frame.size.width / CGFloat(day.meals.count), height: collectionView.frame.size.height)
         } else {
-            return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
+            return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height - 10)
         }
     }
     
@@ -110,6 +112,7 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealSelectionBarCell.cellID, for: indexPath) as? MealSelectionBarCell else { return UICollectionViewCell() }
             cell.mealNameLabel.text = day.meals[indexPath.row].name
             cell.mealNameLabel.textColor = UConn.secondaryColor
+            cell.favoriteImageView.isHidden = !day.meals[indexPath.item].hasFavorite()
             return cell
         } else if collectionView == mealCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealOptionsCell.cellID, for: indexPath) as? MealOptionsCell else { return UICollectionViewCell() }

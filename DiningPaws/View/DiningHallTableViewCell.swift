@@ -32,7 +32,7 @@ class DiningHallTableViewCell: UITableViewCell {
             statusLabel.text = UConn.status(for: diningHall, on: date) /* maybe do another check for specific meals */
             statusLabel.textColor = statusLabel.text == "CLOSED" ? UIColor.red : UIColor.black
         }
-        favoriteImage.isHidden = true
+        favoriteImage.isHidden = !diningHall.hasFavorite(on: date)
     }
     
     override func awakeFromNib() {

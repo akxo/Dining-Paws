@@ -35,5 +35,4 @@ class Station: NSObject, NSCoding {
         case name = "name"
         case options = "options"
     }
-    
 }

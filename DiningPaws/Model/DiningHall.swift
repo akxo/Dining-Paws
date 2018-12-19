@@ -49,4 +49,12 @@ class DiningHall: NSObject, NSCoding {
     func day(for date: Date) -> Day? {
         return days.first(where: { $0.date.isEqual(to: date) })
     }
+    
+    func hasFavorite(on date: Date) -> Bool {
+        guard let day = day(for: date) else { return false }
+        for meal in day.meals {
+            if meal.hasFavorite() { return true }
+        }
+        return false
+    }
 }

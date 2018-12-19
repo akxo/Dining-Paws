@@ -82,7 +82,7 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         mealCollectionView.dataSource = self
         let mealOptionsCellNib = UINib(nibName: "MealOptionsCell", bundle: nil)
         mealCollectionView.register(mealOptionsCellNib, forCellWithReuseIdentifier: MealOptionsCell.cellID)
-        mealCollectionView.frame.size = CGSize(width: UIScreen.main.bounds.width, height: mealCollectionView.frame.size.height)
+        mealCollectionView.frame.size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 200)
     }
     
     private func selectMeal(at index: Int) {

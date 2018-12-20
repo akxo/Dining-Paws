@@ -10,26 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DiningPaws/Controller/DayViewController.swift"
-            timestampString = "566887244.980983"
+            timestampString = "566967688.214336"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DiningPaws/Controller/DayViewController.swift"
-            timestampString = "566887244.981401"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "setupMealCollectionView()"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "viewWillLayoutSubviews()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

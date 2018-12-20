@@ -21,7 +21,7 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
     
     let diningHallName: String
     let day: Day
-    let initialMealIndex: Int
+    var initialMealIndex: Int?
     
     init(diningHallName: String, day: Day, initialMealIndex: Int) {
         self.diningHallName = diningHallName
@@ -40,9 +40,14 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         setupSubViews()
         setupMealSelectionBar()
         setupMealCollectionView()
-        
-        guard day.meals.count > 0 else { return }
-        selectMeal(at: initialMealIndex)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        guard let index = initialMealIndex,
+            let _ = mealSelectionBar.cellForItem(at: IndexPath(item: index, section: 0)),
+            day.meals.count > 0 else { return }
+        initialMealIndex = nil
+        selectMeal(at: index)
     }
     
     private func setupNavigationBar() {
@@ -99,7 +104,7 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         if collectionView == mealSelectionBar {
             return CGSize(width: collectionView.frame.size.width / CGFloat(day.meals.count), height: collectionView.frame.size.height)
         } else {
-            return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height - 10)
+            return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
         }
     }
     

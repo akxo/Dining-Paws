@@ -25,6 +25,7 @@ class CampusPageViewController: UIPageViewController, UIPageViewControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        setupSearchBar()
         setupNavigationButtons()
         setupPageView()
     }
@@ -34,7 +35,11 @@ class CampusPageViewController: UIPageViewController, UIPageViewControllerDelega
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Chalkduster", size: 25)!, NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationItem.title = "Dining Halls"
         self.navigationController?.navigationBar.barTintColor = UConn.primaryColor
-        let searchController = UISearchController(searchResultsController: nil)
+    }
+    
+    private func setupSearchBar() {
+        let searchResults = UITableViewController()
+        let searchController = UISearchController(searchResultsController: searchResults)
         searchController.searchBar.placeholder = "Search for food"
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false

@@ -37,6 +37,7 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        setupSearchBar()
         setupSubViews()
         setupMealSelectionBar()
         setupMealCollectionView()
@@ -54,6 +55,9 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Chalkduster", size: 25)!, NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationItem.title = self.diningHallName
         self.navigationController?.navigationBar.barTintColor = UConn.primaryColor
+    }
+    
+    private func setupSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Search for food"
         self.navigationItem.searchController = searchController

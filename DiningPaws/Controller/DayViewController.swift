@@ -116,6 +116,17 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         return 0
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let index = initialMealIndex else { return }
+        if collectionView == mealSelectionBar {
+            if indexPath.item == day.meals.count - 1 {
+                selectMeal(at: index)
+                initialMealIndex = nil
+                usleep(120000)
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == mealSelectionBar {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealSelectionBarCell.cellID, for: indexPath) as? MealSelectionBarCell else { return UICollectionViewCell() }

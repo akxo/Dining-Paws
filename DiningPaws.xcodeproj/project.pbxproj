@@ -47,6 +47,7 @@
 		A6F34F1621BA261A00CD3B32 /* Campus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F34F1521BA261A00CD3B32 /* Campus.swift */; };
 		A6FE50D921BEE1EC0071C67F /* DiningPaws+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FE50D821BEE1EC0071C67F /* DiningPaws+Date.swift */; };
 		A6FE50E021BEF8C10071C67F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FE50DF21BEF8C10071C67F /* Default-568h@2x.png */; };
+		A6FEC7A121CFFCC7001E2FBE /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FEC7A021CFFCC7001E2FBE /* SearchTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		A6FE50DF21BEF8C10071C67F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A6FE50E521BEFC2D0071C67F /* DiningPawsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiningPawsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FE50E921BEFC2D0071C67F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6FEC7A021CFFCC7001E2FBE /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				A66533B621C5FC2B002D65C8 /* FavoritesTableViewController.swift */,
+				A6FEC7A021CFFCC7001E2FBE /* SearchTableViewController.swift */,
 				A643AEE021C350E900C17808 /* CampusPageViewController.swift */,
 				A666BA9421BF56F600F078F0 /* DiningHallsViewController.swift */,
 				A66533B221C5FB09002D65C8 /* DayViewController.swift */,
@@ -399,6 +402,7 @@
 				A6F34F1621BA261A00CD3B32 /* Campus.swift in Sources */,
 				A666BA9621BF56F600F078F0 /* DiningHallsViewController.swift in Sources */,
 				A66533B721C5FC2B002D65C8 /* FavoritesTableViewController.swift in Sources */,
+				A6FEC7A121CFFCC7001E2FBE /* SearchTableViewController.swift in Sources */,
 				A6FE50D921BEE1EC0071C67F /* DiningPaws+Date.swift in Sources */,
 				A6F34F0E21BA1C5400CD3B32 /* Meal.swift in Sources */,
 				A66533BA21C600E2002D65C8 /* FavoriteTableViewCell.swift in Sources */,

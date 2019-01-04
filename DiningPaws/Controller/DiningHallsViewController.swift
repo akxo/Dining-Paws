@@ -125,5 +125,4 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
         guard index < 6 else { return }
         swipe?(1)
     }
-    
 }

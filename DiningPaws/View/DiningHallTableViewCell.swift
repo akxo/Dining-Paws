@@ -15,7 +15,7 @@ class DiningHallTableViewCell: UITableViewCell {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var favoriteImage: UIImageView!
     
-    static let cellID = "DiningHallCellID"
+    static let cellID = "diningHallTableViewCell"
     var date: Date!
     var diningHall: DiningHall! {
         didSet {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CampusPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+class CampusPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, UISearchResultsUpdating {
     
     lazy var campus: Campus = loadCampus()
     lazy var days: [UIViewController] = initializeDays()
@@ -38,8 +38,14 @@ class CampusPageViewController: UIPageViewController, UIPageViewControllerDelega
     }
     
     private func setupSearchBar() {
-        let searchResults = UITableViewController()
+        let searchResults = SearchTableViewController()
+        searchResults.campus = campus
         let searchController = UISearchController(searchResultsController: searchResults)
+        searchResults.resultSelected = { result in
+            searchController.isActive = false
+            self.goToResult(result)
+        }
+        searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search for food"
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
@@ -118,6 +124,7 @@ class CampusPageViewController: UIPageViewController, UIPageViewControllerDelega
         return days[nextIndex]
     }
     
+    // MARK: actions
     @objc private func favoritesButtonTapped() {
         let favoritesTableViewController = FavoritesTableViewController()
         self.navigationController?.pushViewController(favoritesTableViewController, animated: true)
@@ -125,5 +132,33 @@ class CampusPageViewController: UIPageViewController, UIPageViewControllerDelega
     
     @objc private func settingsButtonTapped() {
         
+    }
+    
+    // MARK: search updater
+    func updateSearchResults(for searchController: UISearchController) {
+        let text = searchController.searchBar.text?.lowercased()
+        guard let searchResultsController = searchController.searchResultsController as? SearchTableViewController else { return }
+        searchResultsController.updateSearchResults(for: text)
+    }
+    
+    func goToResult(_ result: SearchResult) {
+        // go to day
+        let dayIndex = result.dayIndex
+        if dayIndex != currentIndex {
+            let direction: NavigationDirection = dayIndex > currentIndex ? .forward : .reverse
+            self.currentIndex = dayIndex
+            let nextViewController = self.days[self.currentIndex] as! DiningHallsViewController
+            nextViewController.campus = self.campus
+            self.setViewControllers([nextViewController], direction: direction, animated: true, completion: nil)
+        }
+        // go to diningHall & meal
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 0.3) {
+            DispatchQueue.main.async {
+                let diningHall = self.campus.diningHalls[result.diningHallIndex]
+                let day = diningHall.days[result.dayIndex]
+                let dayViewController = DayViewController(diningHallName: diningHall.name, day: day, initialMealIndex: result.mealIndex)
+                self.navigationController?.pushViewController(dayViewController, animated: true)
+            }
+        }
     }
 }

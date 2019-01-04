@@ -14,6 +14,10 @@ class Campus: NSObject, NSCoding {
     var diningHalls: [DiningHall]
     var lastLoadDate: Date?
     
+    var allOptions: [SearchResult] {
+        return getAllOptions()
+    }
+    
     // MARK: init
     override init() {
         self.schoolName = "UConn"
@@ -96,6 +100,26 @@ class Campus: NSObject, NSCoding {
     
     func removeData() {
         UserDefaults.standard.set(nil, forKey: "campusData")
+    }
+    
+    private func getAllOptions() -> [SearchResult] {
+        var results = [SearchResult]()
+        for (diningHallIndex, diningHall) in diningHalls.enumerated() {
+            for (dayIndex, day) in diningHall.days.enumerated() {
+                for (mealIndex, meal) in day.meals.enumerated() {
+                    for station in meal.stations {
+                        for option in station.options {
+                            let result = SearchResult(name: option, diningHall: diningHall.name, date: day.date, meal: meal.name, dayIndex: dayIndex, diningHallIndex: diningHallIndex, mealIndex: mealIndex)
+                            results.append(result)
+                        }
+                    }
+                }
+            }
+        }
+        return results.sorted(by: { (val1, val2) in
+            if val1.date == nil || val2.date == nil { return false }
+            return val1.date! < val2.date!
+        })
     }
     
 }

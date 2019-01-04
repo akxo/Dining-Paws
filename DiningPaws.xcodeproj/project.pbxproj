@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A60D259221C2069000F2BA0D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D259121C2069000F2BA0D /* User.swift */; };
 		A610F77121BC123700A98DCD /* UConn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610F77021BC123700A98DCD /* UConn.swift */; };
+		A627B79921DEE6FD009B3CC5 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A627B79721DEE6FD009B3CC5 /* SearchResultTableViewCell.swift */; };
+		A627B79A21DEE6FD009B3CC5 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A627B79821DEE6FD009B3CC5 /* SearchResultTableViewCell.xib */; };
 		A643AEE221C350E900C17808 /* CampusPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A643AEE021C350E900C17808 /* CampusPageViewController.swift */; };
 		A648403321C4059300AB5B96 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648403221C4059300AB5B96 /* UserTests.swift */; };
 		A648403721C405CF00AB5B96 /* CampusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648403621C405CF00AB5B96 /* CampusTests.swift */; };
@@ -63,6 +65,8 @@
 /* Begin PBXFileReference section */
 		A60D259121C2069000F2BA0D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A610F77021BC123700A98DCD /* UConn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UConn.swift; path = DiningPaws/Model/UConn.swift; sourceTree = SOURCE_ROOT; };
+		A627B79721DEE6FD009B3CC5 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		A627B79821DEE6FD009B3CC5 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
 		A643AEE021C350E900C17808 /* CampusPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusPageViewController.swift; sourceTree = "<group>"; };
 		A648403221C4059300AB5B96 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		A648403621C405CF00AB5B96 /* CampusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusTests.swift; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 				A67DA85E21C0B0B80011D91B /* DiningHallTableViewCell.xib */,
 				A6D01A1221C88A38007BD8E1 /* OptionTableViewCell.swift */,
 				A6D01A1321C88A38007BD8E1 /* OptionTableViewCell.xib */,
+				A627B79721DEE6FD009B3CC5 /* SearchResultTableViewCell.swift */,
+				A627B79821DEE6FD009B3CC5 /* SearchResultTableViewCell.xib */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -375,6 +381,7 @@
 				A6D01A1521C88A38007BD8E1 /* OptionTableViewCell.xib in Resources */,
 				A6D01A0E21C885BC007BD8E1 /* MealOptionsCell.xib in Resources */,
 				A666BA9721BF56F600F078F0 /* DiningHallsViewController.xib in Resources */,
+				A627B79A21DEE6FD009B3CC5 /* SearchResultTableViewCell.xib in Resources */,
 				A681C35521C6CF85002A44E4 /* MealSelectionBarCell.xib in Resources */,
 				A66533B521C5FB09002D65C8 /* DayViewController.xib in Resources */,
 				A6FE50E021BEF8C10071C67F /* Default-568h@2x.png in Resources */,
@@ -409,6 +416,7 @@
 				A6F34F0921BA1A4900CD3B32 /* DiningHall.swift in Sources */,
 				A67DA85F21C0B0B80011D91B /* DiningHallTableViewCell.swift in Sources */,
 				A6F34EE721BA158200CD3B32 /* AppDelegate.swift in Sources */,
+				A627B79921DEE6FD009B3CC5 /* SearchResultTableViewCell.swift in Sources */,
 				A6F34F0C21BA1C4500CD3B32 /* Day.swift in Sources */,
 				A6F34F1221BA229000CD3B32 /* HTMLParser.swift in Sources */,
 				A6F34F1021BA1D5800CD3B32 /* Station.swift in Sources */,

@@ -13,7 +13,7 @@ class FavoriteTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var statusImage: UIImageView!
     
-    static let cellID = "favoriteCellID"
+    static let cellID = "favoriteTableViewCell"
     var favorite: String! {
         didSet {
             nameLabel.text = favorite

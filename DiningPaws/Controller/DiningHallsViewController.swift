@@ -40,6 +40,10 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
         setupDateHeader()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        diningHallsTableView.reloadData()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         let count = campus.diningHalls.reduce(0, { (count, diningHall) in
             count + (diningHall.days.contains(where: { $0.date.isEqual(to: self.date) }) ? 1 : 0)

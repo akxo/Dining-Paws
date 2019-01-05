@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class DayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchResultsUpdating {
     
     @IBOutlet weak var mealSelectionBar: UICollectionView!
     @IBOutlet weak var mealCollectionView: UICollectionView!
@@ -22,6 +22,7 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
     let diningHallName: String
     let day: Day
     var initialMealIndex: Int?
+    var searchText: String?
     
     init(diningHallName: String, day: Day, initialMealIndex: Int) {
         self.diningHallName = diningHallName
@@ -60,6 +61,9 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
     private func setupSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Search for food"
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
         self.definesPresentationContext = true
@@ -137,6 +141,8 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         } else if collectionView == mealCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealOptionsCell.cellID, for: indexPath) as? MealOptionsCell else { return UICollectionViewCell() }
             cell.meal = day.meals[indexPath.row]
+            cell.searchText = searchText
+            cell.configure()
             return cell
         }
         return UICollectionViewCell()
@@ -155,5 +161,10 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         let index = Int(targetContentOffset.pointee.x / mealCollectionView.frame.size.width)
         let indexPath = IndexPath(item: index, section: 0)
         mealSelectionBar.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        self.searchText = searchController.searchBar.text
+        mealCollectionView.reloadData()
     }
 }

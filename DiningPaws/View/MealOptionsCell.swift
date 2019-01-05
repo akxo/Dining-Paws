@@ -10,10 +10,18 @@ import UIKit
 
 class MealOptionsCell: UICollectionViewCell, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var noFoodView: UIView!
     @IBOutlet weak var optionsTableView: UITableView!
     
     static let cellID = "mealOptionsCell"
     var meal: Meal! = nil
+    var searchText: String?
+    var filteredStations: [Station] = []
+    
+    var isSearching: Bool {
+        guard let searchText = self.searchText, !searchText.isEmpty else { return false }
+        return true
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,17 +32,44 @@ class MealOptionsCell: UICollectionViewCell, UITableViewDelegate, UITableViewDat
         optionsTableView.register(optionsTableViewCellNib, forCellReuseIdentifier: OptionTableViewCell.cellID)
     }
     
+    func configure() {
+        noFoodView.isHidden = !meal.stations.isEmpty
+        if let searchText = self.searchText?.lowercased(), !searchText.isEmpty {
+            filteredStations = filter(with: searchText)
+        } else {
+            filteredStations = meal.stations
+        }
+        optionsTableView.reloadData()
+    }
+    
+    func filter(with text: String) -> [Station] {
+        var stations = [Station]()
+        for station in meal.stations {
+            var options = [String]()
+            for option in station.options {
+                if option.lowercased().contains(text) {
+                    options.append(option)
+                }
+            }
+            if !options.isEmpty {
+                let filteredStation = Station(name: station.name, options: options)
+                stations.append(filteredStation)
+            }
+        }
+        return stations
+    }
+    
     // MARK: table view methods
     func numberOfSections(in tableView: UITableView) -> Int {
-        return meal.stations.count
+        return filteredStations.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meal.stations[section].options.count
+        return filteredStations[section].options.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return meal.stations[section].name
+        return filteredStations[section].name
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -43,7 +78,7 @@ class MealOptionsCell: UICollectionViewCell, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: OptionTableViewCell.cellID, for: indexPath) as? OptionTableViewCell else { return UITableViewCell() }
-        let option = meal.stations[indexPath.section].options[indexPath.row]
+        let option = filteredStations[indexPath.section].options[indexPath.row]
         cell.optionLabel.text = option
         cell.favoriteImageView.isHidden = !User.currentUser.enabledFavorites.contains(where: { option.lowercased().contains($0.lowercased()) })
         return cell

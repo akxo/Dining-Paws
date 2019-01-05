@@ -23,17 +23,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="351" height="526"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tableView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2f-Xi-MSl">
+                        <rect key="frame" x="0.0" y="0.0" width="351" height="526"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No food is being served" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHo-JZ-2jV">
+                                <rect key="frame" x="16" y="8" width="319" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aHo-JZ-2jV" firstAttribute="leading" secondItem="D2f-Xi-MSl" secondAttribute="leading" constant="16" id="i8Z-xa-ejW"/>
+                            <constraint firstAttribute="trailing" secondItem="aHo-JZ-2jV" secondAttribute="trailing" constant="16" id="ssB-ir-AXr"/>
+                            <constraint firstItem="aHo-JZ-2jV" firstAttribute="top" secondItem="D2f-Xi-MSl" secondAttribute="top" constant="8" id="up4-cp-tUj"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="D2f-Xi-MSl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1W0-aK-HBz"/>
                 <constraint firstAttribute="bottom" secondItem="iA6-O2-BPt" secondAttribute="bottom" id="8Uw-Xc-Tix"/>
                 <constraint firstItem="iA6-O2-BPt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9oI-eO-YEy"/>
                 <constraint firstAttribute="trailing" secondItem="iA6-O2-BPt" secondAttribute="trailing" id="Pnd-wP-UTR"/>
+                <constraint firstAttribute="trailing" secondItem="D2f-Xi-MSl" secondAttribute="trailing" id="T8P-hm-Joo"/>
+                <constraint firstAttribute="bottom" secondItem="D2f-Xi-MSl" secondAttribute="bottom" id="Zeq-Is-17h"/>
+                <constraint firstItem="D2f-Xi-MSl" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cZH-Yf-zog"/>
                 <constraint firstItem="iA6-O2-BPt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="rvU-lH-wCz"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="351" height="526"/>
             <connections>
+                <outlet property="noFoodView" destination="D2f-Xi-MSl" id="HAQ-rR-qNF"/>
                 <outlet property="optionsTableView" destination="iA6-O2-BPt" id="KM5-Lz-6QB"/>
             </connections>
             <point key="canvasLocation" x="74.400000000000006" y="118.74062968515743"/>

@@ -37,9 +37,9 @@ class Day: NSObject, NSCoding {
     }
     
     func index(for mealName: String) -> Int? {
-         let index = meals.firstIndex(where: { $0.name == mealName })
+        let index = meals.firstIndex(where: { $0.name == mealName })
         if index != nil { return index }
-        if mealName == "Brunch" { return meals.firstIndex(where: { $0.name == "Lunch" }) }
+        if mealName == "Brunch" || mealName == "Between Meals" { return meals.firstIndex(where: { $0.name == "Lunch" }) }
         return nil
     }
 }

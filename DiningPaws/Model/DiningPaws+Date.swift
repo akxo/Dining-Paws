@@ -48,10 +48,8 @@ extension Date {
         return true
     }
     
-    static func < (lhs: Date, rhs: Date) -> Bool {
-        guard let lhsYear = Int(lhs.year), let lhsMonth = Int(lhs.month), let lhsDay = Int(lhs.day) else { return false }
-        guard let rhsYear = Int(rhs.year), let rhsMonth = Int(rhs.month), let rhsDay = Int(rhs.day) else { return false }
-        guard lhsYear <= rhsYear, lhsMonth <= rhsMonth, lhsDay < rhsDay else { return false }
-        return true
+    func  isLess(than date: Date) -> Bool {
+        let order = Calendar.current.compare(self, to: date, toGranularity: .day)
+        return order == .orderedAscending
     }
 }

@@ -118,7 +118,7 @@ class Campus: NSObject, NSCoding {
         }
         return results.sorted(by: { (val1, val2) in
             if val1.date == nil || val2.date == nil { return false }
-            return val1.date! < val2.date!
+            return val1.date!.isLess(than: val2.date!)
         })
     }
     

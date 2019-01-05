@@ -40,7 +40,7 @@ class Meal: NSObject, NSCoding {
     func hasFavorite() -> Bool {
         for station in stations {
             for option in station.options {
-                if User.currentUser.enabledFavorites.contains(option) { return true }
+                if User.currentUser.enabledFavorites.contains(where: { option.contains($0) }) { return true }
             }
         }
         return false

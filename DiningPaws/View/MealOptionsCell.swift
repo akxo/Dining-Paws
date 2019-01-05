@@ -45,7 +45,7 @@ class MealOptionsCell: UICollectionViewCell, UITableViewDelegate, UITableViewDat
         guard let cell = tableView.dequeueReusableCell(withIdentifier: OptionTableViewCell.cellID, for: indexPath) as? OptionTableViewCell else { return UITableViewCell() }
         let option = meal.stations[indexPath.section].options[indexPath.row]
         cell.optionLabel.text = option
-        cell.favoriteImageView.isHidden = !User.currentUser.enabledFavorites.contains(option)
+        cell.favoriteImageView.isHidden = !User.currentUser.enabledFavorites.contains(where: { option.contains($0) })
         return cell
     }
 }

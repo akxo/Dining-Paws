@@ -17,20 +17,28 @@ class SearchTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        allOptions = campus.allOptions
-        
-        let tableViewCellNib = UINib(nibName: "SearchResultTableViewCell", bundle: nil)
-        tableView.register(tableViewCellNib, forCellReuseIdentifier: SearchResultTableViewCell.cellID)
-        
+        setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        reloadTableView()
+    }
+    
+    // initial setup
+    private func setupTableView() {
+        allOptions = campus.allOptions
+        let tableViewCellNib = UINib(nibName: "SearchResultTableViewCell", bundle: nil)
+        tableView.register(tableViewCellNib, forCellReuseIdentifier: SearchResultTableViewCell.cellID)
+    }
+    
+    private func reloadTableView() {
         allOptions = campus.allOptions
         filteredOptions = allOptions
         tableView.reloadData()
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
     
+    // search update method
     func updateSearchResults(for text: String?) {
         if let text = text {
             filteredOptions = allOptions.filter({ $0.name.lowercased().contains(text) })
@@ -40,6 +48,7 @@ class SearchTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    // MARK: table view methods
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 85
     }
@@ -59,23 +68,5 @@ class SearchTableViewController: UITableViewController {
         let result = filteredOptions[indexPath.row]
         resultSelected?(result)
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-}
-
-struct SearchResult {
-    
-    var name: String
-    var diningHall: String?
-    var date: Date?
-    var meal: String?
-    
-    // helper properties
-    var dayIndex: Int
-    var diningHallIndex: Int
-    var mealIndex: Int
-    
-    var subtitle: String? {
-        guard let date = date, let diningHall = diningHall, let meal = meal else { return nil }
-        return "\(date.description) -> \(diningHall) -> \(meal)"
     }
 }

@@ -11,6 +11,7 @@
 		A610F77121BC123700A98DCD /* UConn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610F77021BC123700A98DCD /* UConn.swift */; };
 		A627B79921DEE6FD009B3CC5 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A627B79721DEE6FD009B3CC5 /* SearchResultTableViewCell.swift */; };
 		A627B79A21DEE6FD009B3CC5 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A627B79821DEE6FD009B3CC5 /* SearchResultTableViewCell.xib */; };
+		A627B79C21DF1463009B3CC5 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A627B79B21DF1463009B3CC5 /* SearchResult.swift */; };
 		A643AEE221C350E900C17808 /* CampusPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A643AEE021C350E900C17808 /* CampusPageViewController.swift */; };
 		A648403321C4059300AB5B96 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648403221C4059300AB5B96 /* UserTests.swift */; };
 		A648403721C405CF00AB5B96 /* CampusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648403621C405CF00AB5B96 /* CampusTests.swift */; };
@@ -67,6 +68,7 @@
 		A610F77021BC123700A98DCD /* UConn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UConn.swift; path = DiningPaws/Model/UConn.swift; sourceTree = SOURCE_ROOT; };
 		A627B79721DEE6FD009B3CC5 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		A627B79821DEE6FD009B3CC5 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
+		A627B79B21DF1463009B3CC5 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		A643AEE021C350E900C17808 /* CampusPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusPageViewController.swift; sourceTree = "<group>"; };
 		A648403221C4059300AB5B96 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		A648403621C405CF00AB5B96 /* CampusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusTests.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				A6F34F0B21BA1C4500CD3B32 /* Day.swift */,
 				A6F34F0D21BA1C5400CD3B32 /* Meal.swift */,
 				A6F34F0F21BA1D5800CD3B32 /* Station.swift */,
+				A627B79B21DF1463009B3CC5 /* SearchResult.swift */,
 				A610F77021BC123700A98DCD /* UConn.swift */,
 				A6F34F0621BA186D00CD3B32 /* MenuClient.swift */,
 				A6F34F1121BA229000CD3B32 /* HTMLParser.swift */,
@@ -404,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A627B79C21DF1463009B3CC5 /* SearchResult.swift in Sources */,
 				A6D01A1421C88A38007BD8E1 /* OptionTableViewCell.swift in Sources */,
 				A60D259221C2069000F2BA0D /* User.swift in Sources */,
 				A6F34F1621BA261A00CD3B32 /* Campus.swift in Sources */,

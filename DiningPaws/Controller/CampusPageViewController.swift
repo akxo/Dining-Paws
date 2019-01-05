@@ -42,9 +42,13 @@ class CampusPageViewController: UIPageViewController, UIPageViewControllerDelega
         searchResults.campus = campus
         let searchController = UISearchController(searchResultsController: searchResults)
         searchResults.resultSelected = { result in
-            searchController.isActive = false
-            self.goToResult(result)
+            self.goToSearchResult(result)
+            searchController.dismiss(animated: true, completion: {
+                searchController.resignFirstResponder()
+                searchController.searchBar.text = nil
+            })
         }
+        searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search for food"
         self.navigationItem.searchController = searchController
@@ -134,31 +138,17 @@ class CampusPageViewController: UIPageViewController, UIPageViewControllerDelega
         
     }
     
-    // MARK: search updater
+    // MARK: search methods
     func updateSearchResults(for searchController: UISearchController) {
         let text = searchController.searchBar.text?.lowercased()
         guard let searchResultsController = searchController.searchResultsController as? SearchTableViewController else { return }
         searchResultsController.updateSearchResults(for: text)
     }
     
-    func goToResult(_ result: SearchResult) {
-        // go to day
-        let dayIndex = result.dayIndex
-        if dayIndex != currentIndex {
-            let direction: NavigationDirection = dayIndex > currentIndex ? .forward : .reverse
-            self.currentIndex = dayIndex
-            let nextViewController = self.days[self.currentIndex] as! DiningHallsViewController
-            nextViewController.campus = self.campus
-            self.setViewControllers([nextViewController], direction: direction, animated: true, completion: nil)
-        }
-        // go to diningHall & meal
-        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 0.3) {
-            DispatchQueue.main.async {
-                let diningHall = self.campus.diningHalls[result.diningHallIndex]
-                let day = diningHall.days[result.dayIndex]
-                let dayViewController = DayViewController(diningHallName: diningHall.name, day: day, initialMealIndex: result.mealIndex)
-                self.navigationController?.pushViewController(dayViewController, animated: true)
-            }
-        }
+    private func goToSearchResult(_ result: SearchResult) {
+        let diningHall = self.campus.diningHalls[result.diningHallIndex]
+        let day = diningHall.days[result.dayIndex]
+        let dayViewController = DayViewController(diningHallName: diningHall.name, day: day, initialMealIndex: result.mealIndex)
+        self.navigationController?.pushViewController(dayViewController, animated: true)
     }
 }

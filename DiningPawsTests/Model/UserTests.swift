@@ -12,7 +12,7 @@ import XCTest
 class UserTests: XCTestCase {
     
     func testAddFavorites() {
-        let user = User(favorites: [], enabledFavorites: [])
+        let user = User(favorites: [], enabledFavorites: [], homeDiningHall: nil, locationBasedLoadIsEnabled: false)
         user.add("Sundae Bar")
         user.add("Chicken Tenders")
         user.add("Quesadilla Bar")
@@ -22,7 +22,7 @@ class UserTests: XCTestCase {
     }
     
     func testRemoveFavorites() {
-        let user = User(favorites: [], enabledFavorites: [])
+        let user = User(favorites: [], enabledFavorites: [], homeDiningHall: nil, locationBasedLoadIsEnabled: false)
         user.add("Sundae Bar")
         user.add("Chicken Tenders")
         user.add("Quesadilla Bar")
@@ -35,7 +35,7 @@ class UserTests: XCTestCase {
     }
     
     func testChangeEnabledSatus() {
-        let user = User(favorites: [], enabledFavorites: [])
+        let user = User(favorites: [], enabledFavorites: [], homeDiningHall: nil, locationBasedLoadIsEnabled: false)
         user.add("Sundae Bar")
         user.add("Quesadilla Bar")
         user.add("Chicken Tenders")

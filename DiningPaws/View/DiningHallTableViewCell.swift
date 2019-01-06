@@ -14,6 +14,7 @@ class DiningHallTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var favoriteImage: UIImageView!
+    @IBOutlet weak var networkErrorLabel: UILabel!
     
     static let cellID = "diningHallTableViewCell"
     var date: Date!
@@ -44,6 +45,7 @@ class DiningHallTableViewCell: UITableViewCell {
         nameLabel.text = ""
         statusLabel.text = ""
         favoriteImage.isHidden = true
+        networkErrorLabel.isHidden = true
     }
     
 }

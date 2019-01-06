@@ -35,6 +35,7 @@ class FavoritesTableViewController: UITableViewController {
     }
     
     private func setupTableView() {
+        tableView.rowHeight = 85
         let tableViewCellNib = UINib(nibName: "FavoriteTableViewCell", bundle: nil)
         self.tableView.register(tableViewCellNib, forCellReuseIdentifier: FavoriteTableViewCell.cellID)
     }

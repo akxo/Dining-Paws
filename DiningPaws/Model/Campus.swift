@@ -81,7 +81,10 @@ class Campus: NSObject, NSCoding {
     func addDay(for date: Date, completion: (() -> Void)?) {
         for diningHall in diningHalls {
             guard !diningHall.days.contains(where: { $0.date.isEqual(to: date) }) else { continue }
-            let nextDay = MenuClient.shared.day(for: date, at: diningHall)
+            guard let nextDay = MenuClient.shared.day(for: date, at: diningHall) else {
+                completion?()
+                return
+            }
             diningHall.days.append(nextDay)
         }
         lastLoadDate = Date()

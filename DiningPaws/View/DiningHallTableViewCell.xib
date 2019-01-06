@@ -44,6 +44,12 @@
                             <constraint firstAttribute="width" constant="25" id="pnd-YW-jjo"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check network connection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0N-mP-nSw">
+                        <rect key="frame" x="32" y="11" width="287" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="C1g-lW-hR7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="02D-pi-KOv"/>
@@ -51,8 +57,11 @@
                     <constraint firstItem="gML-K6-0LE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="4ya-6w-mcg"/>
                     <constraint firstItem="gML-K6-0LE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7YI-XB-tR7"/>
                     <constraint firstAttribute="bottomMargin" secondItem="AoV-ao-mwe" secondAttribute="bottom" constant="8" id="ZPj-nn-Cwc"/>
+                    <constraint firstItem="P0N-mP-nSw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="bRe-rw-OfF"/>
                     <constraint firstItem="C1g-lW-hR7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="bqq-Ht-K5w"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="P0N-mP-nSw" secondAttribute="trailing" constant="16" id="f8Y-Dy-SN2"/>
                     <constraint firstItem="AoV-ao-mwe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="g7p-QW-2mX"/>
+                    <constraint firstItem="P0N-mP-nSw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="kR7-5Y-bKz"/>
                     <constraint firstItem="gML-K6-0LE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="mvz-Pl-2X2"/>
                     <constraint firstAttribute="trailing" secondItem="ggV-k6-fpd" secondAttribute="trailing" constant="32" id="whI-vy-6sh"/>
                 </constraints>
@@ -61,6 +70,7 @@
             <connections>
                 <outlet property="favoriteImage" destination="ggV-k6-fpd" id="t2W-Q2-JEK"/>
                 <outlet property="nameLabel" destination="C1g-lW-hR7" id="W82-Vc-Yav"/>
+                <outlet property="networkErrorLabel" destination="P0N-mP-nSw" id="RNz-wp-08N"/>
                 <outlet property="noStatusNameLabel" destination="gML-K6-0LE" id="VIl-OH-88p"/>
                 <outlet property="statusLabel" destination="AoV-ao-mwe" id="kDE-A8-9oT"/>
             </connections>

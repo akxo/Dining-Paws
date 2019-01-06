@@ -22,6 +22,14 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     var date: Date
     var index: Int
     
+    private var hasDay: Bool {
+        let count = campus.diningHalls.reduce(0, { (count, diningHall) in
+            count + (diningHall.days.contains(where: { $0.date.isEqual(to: self.date) }) ? 1 : 0)
+        })
+        guard count == 8 else { return false }
+        return true
+    }
+    
     init(date: Date, index: Int) {
         self.date = date
         self.index = index
@@ -45,31 +53,13 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let count = campus.diningHalls.reduce(0, { (count, diningHall) in
-            count + (diningHall.days.contains(where: { $0.date.isEqual(to: self.date) }) ? 1 : 0)
-        })
-        guard count < 8 else {
+        guard !hasDay else {
             refreshControl.endRefreshing()
             return
         }
-//        view.isUserInteractionEnabled = false
-//        self.parent?.view.isUserInteractionEnabled = false
-//        self.parent?.navigationController?.navigationBar.isUserInteractionEnabled = false
         diningHallsTableView.contentOffset = CGPoint(x: 0, y: -self.refreshControl.frame.size.height)
         refreshControl.beginRefreshing()
-        diningHallsTableView.isUserInteractionEnabled = false
-        DispatchQueue.global(qos: .background).async {
-            self.campus.addDay(for: self.date, completion: {
-                DispatchQueue.main.async {
-//                    self.view.isUserInteractionEnabled = true
-//                    self.parent?.view.isUserInteractionEnabled = true
-//                    self.parent?.navigationController?.navigationBar.isUserInteractionEnabled = true
-                    self.diningHallsTableView.reloadData()
-                    self.refreshControl.endRefreshing()
-                    self.diningHallsTableView.isUserInteractionEnabled = true
-                }
-            })
-        }
+        loadDay()
     }
     
     // MARK: initial setup
@@ -82,6 +72,7 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     private func setupTableView() {
         diningHallsTableView.delegate = self
         diningHallsTableView.dataSource = self
+        diningHallsTableView.rowHeight = 85
         let tableViewCellNib = UINib(nibName: "DiningHallTableViewCell", bundle: nil)
         diningHallsTableView.register(tableViewCellNib, forCellReuseIdentifier: DiningHallTableViewCell.cellID)
     }
@@ -91,17 +82,34 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
         diningHallsTableView.addSubview(refreshControl)
     }
     
+    private func loadDay() {
+        diningHallsTableView.isUserInteractionEnabled = false
+        DispatchQueue.global(qos: .background).async {
+            self.campus.addDay(for: self.date, completion: {
+                DispatchQueue.main.async {
+                    self.diningHallsTableView.reloadData()
+                    self.refreshControl.endRefreshing()
+                    self.diningHallsTableView.isUserInteractionEnabled = true
+                }
+            })
+        }
+    }
+    
     // MARK: tableview methods
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 85
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return hasDay ? 8 : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DiningHallTableViewCell.cellID) as? DiningHallTableViewCell else { return UITableViewCell() }
+        guard hasDay else {
+            cell.networkErrorLabel.isHidden = false
+            return cell
+        }
         cell.date = self.date
         cell.diningHall = campus.diningHalls[indexPath.row]
         return cell
@@ -118,8 +126,13 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        diningHallsTableView.reloadData()
-        refreshControl.endRefreshing()
+        guard refreshControl.isRefreshing else { return }
+        guard !hasDay else {
+            diningHallsTableView.reloadData()
+            refreshControl.endRefreshing()
+            return
+        }
+        loadDay()
     }
     
     @IBAction func leftArrowTapped(_ sender: UIButton) {

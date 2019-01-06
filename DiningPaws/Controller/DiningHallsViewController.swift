@@ -57,6 +57,7 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
 //        self.parent?.navigationController?.navigationBar.isUserInteractionEnabled = false
         diningHallsTableView.contentOffset = CGPoint(x: 0, y: -self.refreshControl.frame.size.height)
         refreshControl.beginRefreshing()
+        diningHallsTableView.isUserInteractionEnabled = false
         DispatchQueue.global(qos: .background).async {
             self.campus.addDay(for: self.date, completion: {
                 DispatchQueue.main.async {
@@ -65,6 +66,7 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
 //                    self.parent?.navigationController?.navigationBar.isUserInteractionEnabled = true
                     self.diningHallsTableView.reloadData()
                     self.refreshControl.endRefreshing()
+                    self.diningHallsTableView.isUserInteractionEnabled = true
                 }
             })
         }

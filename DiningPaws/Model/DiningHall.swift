@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class DiningHall: NSObject, NSCoding {
 
@@ -14,13 +15,15 @@ class DiningHall: NSObject, NSCoding {
     let locationNumber: String
     let locationName: String
     var days: [Day]
+    var location: CLLocation
     
     // MARK: init
-    init(name: String, locationNumber: String, locationName: String, days: [Day]) {
+    init(name: String, locationNumber: String, locationName: String, days: [Day], location: CLLocation) {
         self.name = name
         self.locationNumber = locationNumber
         self.locationName = locationName
         self.days = days
+        self.location = location
     }
     
     // MARK: persistence
@@ -29,14 +32,16 @@ class DiningHall: NSObject, NSCoding {
         aCoder.encode(locationNumber, forKey: Key.locationNumber.rawValue)
         aCoder.encode(locationName, forKey: Key.locationName.rawValue)
         aCoder.encode(days, forKey: Key.days.rawValue)
+        aCoder.encode(location, forKey: Key.location.rawValue)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
         guard let name = aDecoder.decodeObject(forKey: Key.name.rawValue) as? String,
         let locationNumber = aDecoder.decodeObject(forKey: Key.locationNumber.rawValue) as? String,
         let locationName = aDecoder.decodeObject(forKey: Key.locationName.rawValue) as? String,
-            let days = aDecoder.decodeObject(forKey: Key.days.rawValue) as? [Day] else { return nil }
-        self.init(name: name, locationNumber: locationNumber, locationName: locationName, days: days)
+            let days = aDecoder.decodeObject(forKey: Key.days.rawValue) as? [Day],
+            let location = aDecoder.decodeObject(forKey: Key.location.rawValue) as? CLLocation else { return nil }
+        self.init(name: name, locationNumber: locationNumber, locationName: locationName, days: days, location: location)
     }
     
     private enum Key: String {
@@ -44,6 +49,7 @@ class DiningHall: NSObject, NSCoding {
         case locationNumber = "locationNumber"
         case locationName = "locationName"
         case days = "days"
+        case location = "location"
     }
     
     func day(for date: Date) -> Day? {

@@ -12,36 +12,40 @@ class User: NSObject, NSCoding {
 
     var favorites: [String]
     var enabledFavorites: Set<String>
+    var homeDiningHall: String?
+    var locationBasedLoadIsEnabled: Bool
     
-//    var homeDiningHall: String?
-//    var locationBasedLoadIsEnabled: Bool
-//    var location: CLLocation
-    
-    static var currentUser: User {
-        return loadCurrentUser() ?? User(favorites: [], enabledFavorites: Set<String>())
-    }
+    static var currentUser: User = loadCurrentUser() ?? User(favorites: [], enabledFavorites: Set<String>(), homeDiningHall: nil, locationBasedLoadIsEnabled: false)
     
     // MARK: init
-    init(favorites: [String], enabledFavorites: Set<String>) {
+    init(favorites: [String], enabledFavorites: Set<String>, homeDiningHall: String?, locationBasedLoadIsEnabled: Bool) {
         self.favorites = favorites
         self.enabledFavorites = enabledFavorites
+        self.homeDiningHall = homeDiningHall
+        self.locationBasedLoadIsEnabled = locationBasedLoadIsEnabled
     }
     
     // MARK: persistence
     private enum Key: String {
         case favorites = "favorites"
         case enabledFavorites = "enabledFavorites"
+        case homeDiningHall = "homeDiningHall"
+        case locationBasedLoadIsEnabled = "locationBasedLoadIsEnabled"
     }
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(favorites, forKey: Key.favorites.rawValue)
         aCoder.encode(enabledFavorites, forKey: Key.enabledFavorites.rawValue)
+        aCoder.encode(homeDiningHall, forKey: Key.homeDiningHall.rawValue)
+        aCoder.encode(locationBasedLoadIsEnabled, forKey: Key.locationBasedLoadIsEnabled.rawValue)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
         guard let favorites = aDecoder.decodeObject(forKey: Key.favorites.rawValue) as? [String],
             let enabledFavorites = aDecoder.decodeObject(forKey: Key.enabledFavorites.rawValue) as? Set<String> else { return nil }
-        self.init(favorites: favorites, enabledFavorites: enabledFavorites)
+        let homeDiningHall = aDecoder.decodeObject(forKey: Key.homeDiningHall.rawValue) as? String
+        let locationBasedLoadIsEnabled = aDecoder.decodeBool(forKey: Key.locationBasedLoadIsEnabled.rawValue)
+        self.init(favorites: favorites, enabledFavorites: enabledFavorites, homeDiningHall: homeDiningHall, locationBasedLoadIsEnabled: locationBasedLoadIsEnabled)
     }
     
     static private func loadCurrentUser() -> User? {

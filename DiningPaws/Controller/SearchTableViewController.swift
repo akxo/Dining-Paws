@@ -29,6 +29,7 @@ class SearchTableViewController: UITableViewController {
         allOptions = campus.allOptions
         let tableViewCellNib = UINib(nibName: "SearchResultTableViewCell", bundle: nil)
         tableView.register(tableViewCellNib, forCellReuseIdentifier: SearchResultTableViewCell.cellID)
+        tableView.rowHeight = 85
     }
     
     private func reloadTableView() {

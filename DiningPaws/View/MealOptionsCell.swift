@@ -30,6 +30,7 @@ class MealOptionsCell: UICollectionViewCell, UITableViewDelegate, UITableViewDat
         optionsTableView.dataSource = self
         let optionsTableViewCellNib = UINib(nibName: "OptionTableViewCell", bundle: nil)
         optionsTableView.register(optionsTableViewCellNib, forCellReuseIdentifier: OptionTableViewCell.cellID)
+        optionsTableView.rowHeight = 85
     }
     
     func configure() {

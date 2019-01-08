@@ -30,6 +30,8 @@
 		A66533BB21C600E2002D65C8 /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66533B921C600E2002D65C8 /* FavoriteTableViewCell.xib */; };
 		A666BA9621BF56F600F078F0 /* DiningHallsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A666BA9421BF56F600F078F0 /* DiningHallsViewController.swift */; };
 		A666BA9721BF56F600F078F0 /* DiningHallsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A666BA9521BF56F600F078F0 /* DiningHallsViewController.xib */; };
+		A6788D0021E44A5800806079 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6788CFE21E44A5800806079 /* SettingsViewController.swift */; };
+		A6788D0121E44A5800806079 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6788CFF21E44A5800806079 /* SettingsViewController.xib */; };
 		A67DA85F21C0B0B80011D91B /* DiningHallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67DA85D21C0B0B80011D91B /* DiningHallTableViewCell.swift */; };
 		A67DA86021C0B0B80011D91B /* DiningHallTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A67DA85E21C0B0B80011D91B /* DiningHallTableViewCell.xib */; };
 		A681C35421C6CF85002A44E4 /* MealSelectionBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A681C35221C6CF85002A44E4 /* MealSelectionBarCell.swift */; };
@@ -87,6 +89,8 @@
 		A66533B921C600E2002D65C8 /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
 		A666BA9421BF56F600F078F0 /* DiningHallsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallsViewController.swift; sourceTree = "<group>"; };
 		A666BA9521BF56F600F078F0 /* DiningHallsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiningHallsViewController.xib; sourceTree = "<group>"; };
+		A6788CFE21E44A5800806079 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A6788CFF21E44A5800806079 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		A67DA85D21C0B0B80011D91B /* DiningHallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallTableViewCell.swift; sourceTree = "<group>"; };
 		A67DA85E21C0B0B80011D91B /* DiningHallTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiningHallTableViewCell.xib; sourceTree = "<group>"; };
 		A681C35221C6CF85002A44E4 /* MealSelectionBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSelectionBarCell.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 		A6D01A0F21C8897C007BD8E1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A6788CFF21E44A5800806079 /* SettingsViewController.xib */,
 				A666BA9521BF56F600F078F0 /* DiningHallsViewController.xib */,
 				A66533B321C5FB09002D65C8 /* DayViewController.xib */,
 			);
@@ -271,6 +276,7 @@
 		A6FE50DC21BEE9680071C67F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A6788CFE21E44A5800806079 /* SettingsViewController.swift */,
 				A66533B621C5FC2B002D65C8 /* FavoritesTableViewController.swift */,
 				A6FEC7A021CFFCC7001E2FBE /* SearchTableViewController.swift */,
 				A643AEE021C350E900C17808 /* CampusPageViewController.swift */,
@@ -386,6 +392,7 @@
 				A666BA9721BF56F600F078F0 /* DiningHallsViewController.xib in Resources */,
 				A627B79A21DEE6FD009B3CC5 /* SearchResultTableViewCell.xib in Resources */,
 				A681C35521C6CF85002A44E4 /* MealSelectionBarCell.xib in Resources */,
+				A6788D0121E44A5800806079 /* SettingsViewController.xib in Resources */,
 				A66533B521C5FB09002D65C8 /* DayViewController.xib in Resources */,
 				A6FE50E021BEF8C10071C67F /* Default-568h@2x.png in Resources */,
 				A66533BB21C600E2002D65C8 /* FavoriteTableViewCell.xib in Resources */,
@@ -430,6 +437,7 @@
 				A6F34F0721BA186D00CD3B32 /* MenuClient.swift in Sources */,
 				A643AEE221C350E900C17808 /* CampusPageViewController.swift in Sources */,
 				A6D01A0D21C885BC007BD8E1 /* MealOptionsCell.swift in Sources */,
+				A6788D0021E44A5800806079 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

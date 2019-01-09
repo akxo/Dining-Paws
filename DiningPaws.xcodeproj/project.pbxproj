@@ -36,6 +36,8 @@
 		A67DA86021C0B0B80011D91B /* DiningHallTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A67DA85E21C0B0B80011D91B /* DiningHallTableViewCell.xib */; };
 		A681C35421C6CF85002A44E4 /* MealSelectionBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A681C35221C6CF85002A44E4 /* MealSelectionBarCell.swift */; };
 		A681C35521C6CF85002A44E4 /* MealSelectionBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A681C35321C6CF85002A44E4 /* MealSelectionBarCell.xib */; };
+		A6B22A4D21E5AC5F008536B2 /* SwitchSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B22A4B21E5AC5F008536B2 /* SwitchSettingTableViewCell.swift */; };
+		A6B22A4E21E5AC5F008536B2 /* SwitchSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B22A4C21E5AC5F008536B2 /* SwitchSettingTableViewCell.xib */; };
 		A6D01A0D21C885BC007BD8E1 /* MealOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D01A0B21C885BC007BD8E1 /* MealOptionsCell.swift */; };
 		A6D01A0E21C885BC007BD8E1 /* MealOptionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D01A0C21C885BC007BD8E1 /* MealOptionsCell.xib */; };
 		A6D01A1421C88A38007BD8E1 /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D01A1221C88A38007BD8E1 /* OptionTableViewCell.swift */; };
@@ -95,6 +97,8 @@
 		A67DA85E21C0B0B80011D91B /* DiningHallTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiningHallTableViewCell.xib; sourceTree = "<group>"; };
 		A681C35221C6CF85002A44E4 /* MealSelectionBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSelectionBarCell.swift; sourceTree = "<group>"; };
 		A681C35321C6CF85002A44E4 /* MealSelectionBarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealSelectionBarCell.xib; sourceTree = "<group>"; };
+		A6B22A4B21E5AC5F008536B2 /* SwitchSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchSettingTableViewCell.swift; sourceTree = "<group>"; };
+		A6B22A4C21E5AC5F008536B2 /* SwitchSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchSettingTableViewCell.xib; sourceTree = "<group>"; };
 		A6D01A0B21C885BC007BD8E1 /* MealOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealOptionsCell.swift; sourceTree = "<group>"; };
 		A6D01A0C21C885BC007BD8E1 /* MealOptionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealOptionsCell.xib; sourceTree = "<group>"; };
 		A6D01A1221C88A38007BD8E1 /* OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 				A6D01A1321C88A38007BD8E1 /* OptionTableViewCell.xib */,
 				A627B79721DEE6FD009B3CC5 /* SearchResultTableViewCell.swift */,
 				A627B79821DEE6FD009B3CC5 /* SearchResultTableViewCell.xib */,
+				A6B22A4B21E5AC5F008536B2 /* SwitchSettingTableViewCell.swift */,
+				A6B22A4C21E5AC5F008536B2 /* SwitchSettingTableViewCell.xib */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -386,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6F34EF121BA158300CD3B32 /* LaunchScreen.storyboard in Resources */,
+				A6B22A4E21E5AC5F008536B2 /* SwitchSettingTableViewCell.xib in Resources */,
 				A6F34EEE21BA158300CD3B32 /* Assets.xcassets in Resources */,
 				A6D01A1521C88A38007BD8E1 /* OptionTableViewCell.xib in Resources */,
 				A6D01A0E21C885BC007BD8E1 /* MealOptionsCell.xib in Resources */,
@@ -414,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6B22A4D21E5AC5F008536B2 /* SwitchSettingTableViewCell.swift in Sources */,
 				A627B79C21DF1463009B3CC5 /* SearchResult.swift in Sources */,
 				A6D01A1421C88A38007BD8E1 /* OptionTableViewCell.swift in Sources */,
 				A60D259221C2069000F2BA0D /* User.swift in Sources */,

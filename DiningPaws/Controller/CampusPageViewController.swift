@@ -138,6 +138,7 @@ class CampusPageViewController: UIPageViewController, UIPageViewControllerDelega
         let settingsViewController = SettingsViewController()
         settingsViewController.locationEnabled = User.currentUser.locationBasedLoadIsEnabled
         settingsViewController.homeEnabled = User.currentUser.homeDiningHall != nil
+        self.navigationController?.pushViewController(settingsViewController, animated: true)
     }
     
     // MARK: search methods

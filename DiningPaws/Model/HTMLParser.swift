@@ -25,9 +25,10 @@ class HTMLParser {
             
             // handle late night
             guard name == "Dinner" else { continue }
-            let lateNightHTML = mealHTML.components(separatedBy: "-- LATE NIGHT --")
+            var lateNightHTML = mealHTML.components(separatedBy: "-- LATE NIGHT --")
             guard lateNightHTML.count > 1 else { continue }
-            let lateNightStations = [Station(name: "LATE NIGHT", options: options(for: lateNightHTML[1]))]
+            lateNightHTML = lateNightHTML[1].components(separatedBy: "shortmenucats")
+            let lateNightStations = [Station(name: "LATE NIGHT", options: options(for: lateNightHTML[0]))]
             let lateNight = Meal(name: "Late Night", stations: lateNightStations)
             meals.append(lateNight)
         }

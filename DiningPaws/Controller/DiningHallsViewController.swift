@@ -21,6 +21,7 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     var campus: Campus!
     var date: Date
     var index: Int
+    var loadAttempt: Int = 0
     
     private var hasDay: Bool {
         let count = campus.diningHalls.reduce(0, { (count, diningHall) in
@@ -87,6 +88,7 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
         DispatchQueue.global(qos: .background).async {
             self.campus.addDay(for: self.date, completion: {
                 DispatchQueue.main.async {
+                    self.loadAttempt += 1
                     self.diningHallsTableView.reloadData()
                     self.refreshControl.endRefreshing()
                     self.diningHallsTableView.isUserInteractionEnabled = true
@@ -101,12 +103,12 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return hasDay ? 8 : 1
+        return !hasDay && loadAttempt > 0 ? 1 : 8
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DiningHallTableViewCell.cellID) as? DiningHallTableViewCell else { return UITableViewCell() }
-        guard hasDay else {
+        guard hasDay || loadAttempt == 0 else {
             cell.networkErrorLabel.isHidden = false
             return cell
         }

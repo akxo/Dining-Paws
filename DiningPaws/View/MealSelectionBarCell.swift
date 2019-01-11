@@ -12,8 +12,26 @@ class MealSelectionBarCell: UICollectionViewCell {
 
     @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var favoriteImageView: UIImageView!
+    @IBOutlet weak var favoriteImageWidth: NSLayoutConstraint!
+    @IBOutlet weak var favoriteImageHeight: NSLayoutConstraint!
     
     static let cellID = "mealSelectionBarCell"
+    var screenSize: CGFloat! {
+        didSet {
+            var pointSize: CGFloat = 17.0
+            var imageSize: CGFloat = 12.0
+            if screenSize == 320 {
+                pointSize = 12.0
+                imageSize = 10.0
+            } else if screenSize < 400 {
+                pointSize = 15.0
+                imageSize = 11.0
+            }
+            mealNameLabel.font = UIFont.systemFont(ofSize: pointSize)
+            favoriteImageWidth.constant = imageSize
+            favoriteImageHeight.constant = imageSize
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

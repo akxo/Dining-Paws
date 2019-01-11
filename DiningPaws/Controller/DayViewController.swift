@@ -18,6 +18,7 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
     @IBOutlet weak var horizontalBarWidth: NSLayoutConstraint!
     
     let mealSelectionBarCellID = "mealSelectionBarCellID"
+    let screenSize = UIScreen.main.bounds.width
     
     let diningHallName: String
     let day: Day
@@ -137,6 +138,7 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
             cell.mealNameLabel.text = day.meals[indexPath.row].name
             cell.mealNameLabel.textColor = UConn.secondaryColor
             cell.favoriteImageView.isHidden = !day.meals[indexPath.item].hasFavorite()
+            cell.screenSize = screenSize
             return cell
         } else if collectionView == mealCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealOptionsCell.cellID, for: indexPath) as? MealOptionsCell else { return UICollectionViewCell() }

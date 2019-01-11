@@ -19,14 +19,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="187" height="64"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvE-eX-tJl">
-                        <rect key="frame" x="72.5" y="22" width="42" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breakfast" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvE-eX-tJl">
+                        <rect key="frame" x="59.5" y="22" width="72.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filledStar" translatesAutoresizingMaskIntoConstraints="NO" id="1ih-M9-Vdd">
-                        <rect key="frame" x="119.5" y="25.5" width="13" height="13"/>
+                        <rect key="frame" x="46.5" y="25.5" width="13" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="13" id="g6u-SR-IqT"/>
                             <constraint firstAttribute="height" constant="13" id="ygX-Ex-HqX"/>
@@ -35,15 +35,17 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="1ih-M9-Vdd" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="4RM-O4-NN8"/>
                 <constraint firstItem="uvE-eX-tJl" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="5Kv-If-WOU"/>
-                <constraint firstItem="1ih-M9-Vdd" firstAttribute="leading" secondItem="uvE-eX-tJl" secondAttribute="trailing" constant="5" id="AiE-KG-Zsw"/>
-                <constraint firstItem="1ih-M9-Vdd" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="BRt-cn-1jm"/>
-                <constraint firstItem="uvE-eX-tJl" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="bpi-Qf-PH1"/>
+                <constraint firstItem="uvE-eX-tJl" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" constant="2" id="bpi-Qf-PH1"/>
+                <constraint firstItem="uvE-eX-tJl" firstAttribute="leading" secondItem="1ih-M9-Vdd" secondAttribute="trailing" id="wJu-IQ-fdm"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="187" height="64"/>
             <connections>
+                <outlet property="favoriteImageHeight" destination="ygX-Ex-HqX" id="B7x-FR-MbN"/>
                 <outlet property="favoriteImageView" destination="1ih-M9-Vdd" id="AOS-1C-zVa"/>
+                <outlet property="favoriteImageWidth" destination="g6u-SR-IqT" id="6T3-Xr-6Qk"/>
                 <outlet property="mealNameLabel" destination="uvE-eX-tJl" id="9MF-Ej-Z99"/>
             </connections>
             <point key="canvasLocation" x="162.40000000000001" y="54.872563718140931"/>

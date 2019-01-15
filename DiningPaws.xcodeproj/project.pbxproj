@@ -38,6 +38,8 @@
 		A681C35521C6CF85002A44E4 /* MealSelectionBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A681C35321C6CF85002A44E4 /* MealSelectionBarCell.xib */; };
 		A6B22A4D21E5AC5F008536B2 /* SwitchSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B22A4B21E5AC5F008536B2 /* SwitchSettingTableViewCell.swift */; };
 		A6B22A4E21E5AC5F008536B2 /* SwitchSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B22A4C21E5AC5F008536B2 /* SwitchSettingTableViewCell.xib */; };
+		A6B3FF6621ED6982001D2536 /* SettingHeaderFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B3FF6421ED6982001D2536 /* SettingHeaderFooterCell.swift */; };
+		A6B3FF6721ED6982001D2536 /* SettingHeaderFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B3FF6521ED6982001D2536 /* SettingHeaderFooterCell.xib */; };
 		A6D01A0D21C885BC007BD8E1 /* MealOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D01A0B21C885BC007BD8E1 /* MealOptionsCell.swift */; };
 		A6D01A0E21C885BC007BD8E1 /* MealOptionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D01A0C21C885BC007BD8E1 /* MealOptionsCell.xib */; };
 		A6D01A1421C88A38007BD8E1 /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D01A1221C88A38007BD8E1 /* OptionTableViewCell.swift */; };
@@ -99,6 +101,8 @@
 		A681C35321C6CF85002A44E4 /* MealSelectionBarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealSelectionBarCell.xib; sourceTree = "<group>"; };
 		A6B22A4B21E5AC5F008536B2 /* SwitchSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchSettingTableViewCell.swift; sourceTree = "<group>"; };
 		A6B22A4C21E5AC5F008536B2 /* SwitchSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchSettingTableViewCell.xib; sourceTree = "<group>"; };
+		A6B3FF6421ED6982001D2536 /* SettingHeaderFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderFooterCell.swift; sourceTree = "<group>"; };
+		A6B3FF6521ED6982001D2536 /* SettingHeaderFooterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingHeaderFooterCell.xib; sourceTree = "<group>"; };
 		A6D01A0B21C885BC007BD8E1 /* MealOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealOptionsCell.swift; sourceTree = "<group>"; };
 		A6D01A0C21C885BC007BD8E1 /* MealOptionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealOptionsCell.xib; sourceTree = "<group>"; };
 		A6D01A1221C88A38007BD8E1 /* OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				A627B79821DEE6FD009B3CC5 /* SearchResultTableViewCell.xib */,
 				A6B22A4B21E5AC5F008536B2 /* SwitchSettingTableViewCell.swift */,
 				A6B22A4C21E5AC5F008536B2 /* SwitchSettingTableViewCell.xib */,
+				A6B3FF6421ED6982001D2536 /* SettingHeaderFooterCell.swift */,
+				A6B3FF6521ED6982001D2536 /* SettingHeaderFooterCell.xib */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -403,6 +409,7 @@
 				A66533B521C5FB09002D65C8 /* DayViewController.xib in Resources */,
 				A6FE50E021BEF8C10071C67F /* Default-568h@2x.png in Resources */,
 				A66533BB21C600E2002D65C8 /* FavoriteTableViewCell.xib in Resources */,
+				A6B3FF6721ED6982001D2536 /* SettingHeaderFooterCell.xib in Resources */,
 				A67DA86021C0B0B80011D91B /* DiningHallTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,6 +452,7 @@
 				A6F34F0721BA186D00CD3B32 /* MenuClient.swift in Sources */,
 				A643AEE221C350E900C17808 /* CampusPageViewController.swift in Sources */,
 				A6D01A0D21C885BC007BD8E1 /* MealOptionsCell.swift in Sources */,
+				A6B3FF6621ED6982001D2536 /* SettingHeaderFooterCell.swift in Sources */,
 				A6788D0021E44A5800806079 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

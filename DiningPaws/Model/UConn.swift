@@ -12,6 +12,7 @@ import CoreLocation
 
 struct UConn {
     
+    static let diningHalls = ["Buckley", "McMahon", "North", "Northwest", "Putnam", "South", "Towers", "Whitney"]
     static let lateNightDiningHalls = ["McMahon", "Northwest", "Whitney"]
     // sunday = 1, monday = 2, etc.
     static let lateNightWeekdays = ["1", "2", "3", "4", "5"]

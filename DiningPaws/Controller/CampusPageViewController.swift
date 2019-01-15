@@ -136,8 +136,6 @@ class CampusPageViewController: UIPageViewController, UIPageViewControllerDelega
     
     @objc private func settingsButtonTapped() {
         let settingsViewController = SettingsViewController()
-        settingsViewController.locationEnabled = User.currentUser.locationBasedLoadIsEnabled
-        settingsViewController.homeEnabled = User.currentUser.homeDiningHall != nil
         self.navigationController?.pushViewController(settingsViewController, animated: true)
     }
     

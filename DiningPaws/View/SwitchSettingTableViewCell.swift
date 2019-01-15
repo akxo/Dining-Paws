@@ -15,11 +15,25 @@ class SwitchSettingTableViewCell: UITableViewCell {
     
     static let cellID = "switchSettingTableViewCell"
     
+    var toggled: ((Bool)->Void)?
+    
+    var isEnabled: Bool! {
+        didSet {
+            isUserInteractionEnabled = isEnabled
+            settingLabel.textColor = isEnabled ? UIColor.darkText : .gray
+        }
+    }
+    
     @IBAction func switchValueDidChange(_ sender: UISwitch) {
-        
+        toggled?(sender.isOn)
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        prepareForReuse()
+    }
+    
+    override func prepareForReuse() {
+        settingSwitch.isHidden = false
+        isEnabled = true
     }
 }

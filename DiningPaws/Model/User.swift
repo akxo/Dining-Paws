@@ -83,6 +83,22 @@ class User: NSObject, NSCoding {
         save()
     }
     
+    public func setLocationBasedLoading(to value: Bool) {
+        locationBasedLoadIsEnabled = value
+        if locationBasedLoadIsEnabled, homeDiningHall != nil {
+            homeDiningHall = nil
+        }
+        save()
+    }
+    
+    public func setHomeDiningHall(to diningHall: String?) {
+        homeDiningHall = diningHall
+        if homeDiningHall != nil, locationBasedLoadIsEnabled {
+            locationBasedLoadIsEnabled = false
+        }
+        save()
+    }
+    
     private func save() {
         do {
             let userData = try NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: false)

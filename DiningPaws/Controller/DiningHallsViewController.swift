@@ -51,9 +51,13 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewWillAppear(_ animated: Bool) {
         diningHallsTableView.reloadData()
+        leftArrowButton.isUserInteractionEnabled = false
+        rightArrowButton.isUserInteractionEnabled = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        leftArrowButton.isUserInteractionEnabled = true
+        rightArrowButton.isUserInteractionEnabled = true
         guard !hasDay else {
             refreshControl.endRefreshing()
             return

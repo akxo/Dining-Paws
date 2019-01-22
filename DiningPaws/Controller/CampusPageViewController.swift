@@ -28,6 +28,22 @@ class CampusPageViewController: UIPageViewController, UIPageViewControllerDelega
         setupSearchBar()
         setupNavigationButtons()
         setupPageView()
+        
+        // home and location load initiate
+        let currentUser = User.currentUser
+        if let homeDiningHall = currentUser.homeDiningHall {
+            guard let diningHall = campus.diningHalls.first(where: { $0.name == homeDiningHall }),
+                let day = diningHall.day(for: Date()) else { return }
+            let mealName = UConn.status(for: diningHall, on: Date())
+            let initialMealIndex = day.index(for: mealName)
+            let dayViewController = DayViewController(diningHallName: diningHall.name, day: day, initialMealIndex: initialMealIndex ?? 0)
+            self.navigationController?.pushViewController(dayViewController, animated: true)
+            
+        } else if currentUser.locationBasedLoadIsEnabled {
+            // find location and go to closest dining hall
+        }
+        
+        
     }
     
     // MARK: initial ui setup

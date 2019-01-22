@@ -17,6 +17,10 @@ class FavoritesTableViewController: UITableViewController {
         return User.currentUser.enabledFavorites
     }
     
+    var hasFavorites: Bool {
+        return !favorites.isEmpty
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
@@ -46,11 +50,19 @@ class FavoritesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard hasFavorites else { return 1 }
         return favorites.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.cellID) as? FavoriteTableViewCell else { return UITableViewCell() }
+        guard hasFavorites else {
+            cell.emptyLabel.isHidden = false
+            cell.nameLabel.isHidden = true
+            cell.statusImage.isHidden = true
+            cell.isUserInteractionEnabled = false
+            return cell
+        }
         let favorite = favorites[indexPath.row]
         cell.favorite = favorite
         cell.isEnabled = enabledFavorites.contains(favorite)

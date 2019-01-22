@@ -32,6 +32,12 @@
                             <constraint firstAttribute="height" constant="25" id="vz4-p1-fTZ"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add your favorite foods to see when and where they are being served." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1if-Zk-Eku">
+                        <rect key="frame" x="16" y="11" width="347" height="41"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="PQR-fo-kd8" firstAttribute="leading" secondItem="z9I-BD-F4L" secondAttribute="trailing" constant="20" id="2PL-ju-gJG"/>
@@ -39,10 +45,14 @@
                     <constraint firstAttribute="trailingMargin" secondItem="PQR-fo-kd8" secondAttribute="trailing" constant="16" id="CLn-er-moP"/>
                     <constraint firstItem="z9I-BD-F4L" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="RGd-3d-geK"/>
                     <constraint firstItem="z9I-BD-F4L" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="aSB-gb-muT"/>
+                    <constraint firstItem="1if-Zk-Eku" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="ayj-ph-Jp5"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="1if-Zk-Eku" secondAttribute="trailing" id="b84-YM-Qa0"/>
+                    <constraint firstItem="1if-Zk-Eku" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="tO5-4U-PxZ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="emptyLabel" destination="1if-Zk-Eku" id="N8K-Pi-atu"/>
                 <outlet property="nameLabel" destination="z9I-BD-F4L" id="qWr-z0-Uhf"/>
                 <outlet property="statusImage" destination="PQR-fo-kd8" id="bre-mg-Odd"/>
             </connections>

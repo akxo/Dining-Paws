@@ -50,16 +50,16 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.setUserInteraction(to: false)
+        if !hasDay { self.setPagingIsEnabled(to: false) }
         diningHallsTableView.reloadData()
-        leftArrowButton.isUserInteractionEnabled = false
-        rightArrowButton.isUserInteractionEnabled = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        leftArrowButton.isUserInteractionEnabled = true
-        rightArrowButton.isUserInteractionEnabled = true
         guard !hasDay else {
             refreshControl.endRefreshing()
+            setUserInteraction(to: true)
+            setPagingIsEnabled(to: true)
             return
         }
         diningHallsTableView.contentOffset = CGPoint(x: 0, y: -self.refreshControl.frame.size.height)
@@ -88,17 +88,30 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     private func loadDay() {
-        diningHallsTableView.isUserInteractionEnabled = false
         DispatchQueue.global(qos: .background).async {
             self.campus.addDay(for: self.date, completion: {
                 DispatchQueue.main.async {
                     self.loadAttempt += 1
                     self.diningHallsTableView.reloadData()
                     self.refreshControl.endRefreshing()
-                    self.diningHallsTableView.isUserInteractionEnabled = true
+                    self.setUserInteraction(to: true)
+                    self.setPagingIsEnabled(to: true)
                 }
             })
         }
+    }
+    
+    private func setPagingIsEnabled(to isEnabled: Bool) {
+        guard let parent = self.parent as? CampusPageViewController else { return }
+        parent.view.isUserInteractionEnabled = isEnabled
+    }
+    
+    private func setUserInteraction(to isEnabled: Bool) {
+        self.leftArrowButton.isUserInteractionEnabled = isEnabled
+        self.rightArrowButton.isUserInteractionEnabled = isEnabled
+        self.diningHallsTableView.isUserInteractionEnabled = isEnabled
+        self.navigationController?.navigationBar.isUserInteractionEnabled = isEnabled
+        self.navigationItem.searchController?.searchBar.isUserInteractionEnabled = isEnabled
     }
     
     // MARK: tableview methods
@@ -138,6 +151,8 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
             refreshControl.endRefreshing()
             return
         }
+        setUserInteraction(to: false)
+        setPagingIsEnabled(to: false)
         loadDay()
     }
     

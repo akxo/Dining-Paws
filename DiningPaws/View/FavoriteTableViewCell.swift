@@ -12,6 +12,7 @@ class FavoriteTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var statusImage: UIImageView!
+    @IBOutlet weak var emptyLabel: UILabel!
     
     static let cellID = "favoriteTableViewCell"
     var favorite: String! {
@@ -27,5 +28,12 @@ class FavoriteTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        prepareForReuse()
+    }
+    
+    override func prepareForReuse() {
+        emptyLabel.isHidden = true
+        nameLabel.isHidden = false
+        statusImage.isHidden = false
     }
 }

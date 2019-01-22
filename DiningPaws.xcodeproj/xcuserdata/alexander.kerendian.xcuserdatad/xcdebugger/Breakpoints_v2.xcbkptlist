@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DiningPaws/Controller/DiningHallsViewController.swift"
-            timestampString = "569298527.1729259"
+            timestampString = "569808472.355948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "loadDay()"
             landmarkType = "7">
          </BreakpointContent>

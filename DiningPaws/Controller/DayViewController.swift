@@ -43,6 +43,7 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         setupSubViews()
         setupMealSelectionBar()
         setupMealCollectionView()
+        setupDismissButton()
     }
     
     override func viewWillLayoutSubviews() {
@@ -97,6 +98,14 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
         let mealOptionsCellNib = UINib(nibName: "MealOptionsCell", bundle: nil)
         mealCollectionView.register(mealOptionsCellNib, forCellWithReuseIdentifier: MealOptionsCell.cellID)
         mealCollectionView.frame.size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 200)
+    }
+    
+    private func setupDismissButton() {
+        guard let nav = UIApplication.shared.delegate?.window??.rootViewController as? UINavigationController,
+            let _ = nav.viewControllers.first as? DayViewController else { return }
+        navigationItem.title = User.currentUser.locationBasedLoadIsEnabled ? "\(diningHallName) (Location)" : "\(diningHallName) (Home)"
+        let dismissButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismissDayViewController))
+        navigationItem.rightBarButtonItem = dismissButton
     }
     
     private func selectMeal(at index: Int) {
@@ -168,5 +177,10 @@ class DayViewController: UIViewController, UICollectionViewDelegate, UICollectio
     func updateSearchResults(for searchController: UISearchController) {
         self.searchText = searchController.searchBar.text
         mealCollectionView.reloadData()
+    }
+    
+    @objc private func dismissDayViewController() {
+        UIApplication.shared.delegate?.window??.rootViewController = UINavigationController(rootViewController: CampusPageViewController())
+        UIApplication.shared.delegate?.window??.makeKeyAndVisible()
     }
 }

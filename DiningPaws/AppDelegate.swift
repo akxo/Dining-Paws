@@ -7,18 +7,34 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var locationManager = CLLocationManager()
+    lazy var campus: Campus = loadCampus()
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let navigationController = UINavigationController(rootViewController: CampusPageViewController())
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
+        
+        if let homeDiningHall = User.currentUser.homeDiningHall, let dayVC = dayViewController(for: homeDiningHall) {
+            
+            let navigationController = UINavigationController(rootViewController: dayVC)
+            window?.rootViewController = navigationController
+            window?.makeKeyAndVisible()
+        } else if User.currentUser.locationBasedLoadIsEnabled, let diningHall = closestDiningHall(), let dayVC = dayViewController(for: diningHall) {
+            
+            let navigationController = UINavigationController(rootViewController: dayVC)
+            window?.rootViewController = navigationController
+            window?.makeKeyAndVisible()
+        } else {
+            let navigationController = UINavigationController(rootViewController: CampusPageViewController())
+            window?.rootViewController = navigationController
+            window?.makeKeyAndVisible()
+        }
         return true
     }
 
@@ -34,6 +50,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        guard let navigationController = window?.rootViewController as? UINavigationController,
+            let campusViewController = navigationController.viewControllers.first(where: { $0 is CampusPageViewController }) as? CampusPageViewController,
+            let firstDayViewController = campusViewController.days.first as? DiningHallsViewController,
+            !firstDayViewController.date.isEqual(to: Date()) else { return }
+        
+        campusViewController.campus = loadCampus()
+        campusViewController.days = campusViewController.initializeDays()
+        campusViewController.setupPageView()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -43,7 +67,67 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    private func loadCampus() -> Campus {
+        guard let campusData = UserDefaults.standard.data(forKey: "campusData") else { return Campus() }
+        do {
+            guard let campus = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(campusData) as? Campus else { return Campus() }
+            campus.cleanUp()
+            return campus
+        } catch let error {
+            print("error: \(error.localizedDescription)")
+            return Campus()
+        }
+    }
+    
+    // MARK: location methods
+    private func closestDiningHall() -> String? {
+        guard CLLocationManager.locationServicesEnabled(), checkLocationAuthorization(), let location = locationManager.location else { return nil }
+        return closestDiningHall(to: location)
+    }
+    
+    // MARK: location methods
+    private func checkLocationAuthorization() -> Bool {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse, .authorizedAlways:
+            return true
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+            return false
+        default:
+            return false
+        }
+    }
+    
+    private func closestDiningHall(to location: CLLocation) -> String {
+        var closestDiningHall: String?
+        var shortestDistance: Double?
+        for diningHall in campus.diningHalls {
+            let distance = location.distance(from: diningHall.location).magnitude
+            if shortestDistance == nil || distance < shortestDistance! {
+                shortestDistance = distance
+                closestDiningHall = diningHall.name
+            }
+        }
+        return closestDiningHall ?? "Buckley"
+    }
+    
+    // MARK: load specific day
+    private func dayViewController(for diningHall: String) -> DayViewController? {
+        guard let diningHall = campus.diningHalls.first(where: { $0.name == diningHall }), let day = getDay(for: diningHall) else { return nil }
+        let mealName = UConn.status(for: diningHall, on: Date())
+        let initialMealIndex = day.index(for: mealName)
+        return DayViewController(diningHallName: diningHall.name, day: day, initialMealIndex: initialMealIndex ?? 0)
+    }
+    
+    private func getDay(for diningHall: DiningHall) -> Day? {
+        let today = Date()
+        if let day = diningHall.day(for: today) { return day }
+        if let day = MenuClient.shared.day(for: today, at: diningHall) {
+            diningHall.days.append(day)
+            return day
+        }
+        return nil
+    }
 }
 

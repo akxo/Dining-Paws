@@ -63,4 +63,13 @@ class DiningHall: NSObject, NSCoding {
         }
         return false
     }
+    
+    func addDay(for date: Date, completion: (() -> Void)?) {
+        guard let day = MenuClient.shared.day(for: date, at: self) else {
+            completion?()
+            return
+        }
+        days.append(day)
+        completion?()
+    }
 }

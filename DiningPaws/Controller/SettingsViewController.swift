@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var settingsTableView: UITableView!
+    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +87,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             cell.settingSwitch.isOn = User.currentUser.locationBasedLoadIsEnabled
             cell.selectionStyle = .none
             cell.toggled = { value in
-                User.currentUser.setLocationBasedLoading(to: value)
+                if !value || self.checkLocationAuthorization() {
+                    User.currentUser.setLocationBasedLoading(to: value)
+                }
                 self.settingsTableView.reloadData()
             }
         } else if indexPath.section == 2 {
@@ -112,5 +117,37 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         User.currentUser.setHomeDiningHall(to: selectedDiningHall)
         settingsTableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: location method
+    private func checkLocationAuthorization() -> Bool {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse, .authorizedAlways:
+            return true
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+            return true
+        case .denied:
+            let deniedAlert = UIAlertController(title: "Location authorization denied", message: "Go to settings and allow Dining Paws to use your location to access this feature.", preferredStyle: .alert)
+            deniedAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            deniedAlert.addAction(UIAlertAction(title: "Go To Settings", style: .default, handler: { (_) in
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    if UIApplication.shared.canOpenURL(url) {
+                        if #available(iOS 10.0, *) {
+                            UIApplication.shared.open(url)
+                        } else {
+                            UIApplication.shared.openURL(url)
+                        }
+                    }
+                }
+            }))
+            self.present(deniedAlert, animated: true, completion: nil)
+            return false
+        case .restricted:
+            let restrictedAlert = UIAlertController(title: "Location authorization restricted", message: "Parental controls may be blocking location services.", preferredStyle: .alert)
+            restrictedAlert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            self.present(restrictedAlert, animated: true, completion: nil)
+            return false
+        }
     }
 }

@@ -35,5 +35,6 @@ class FavoriteTableViewCell: UITableViewCell {
         emptyLabel.isHidden = true
         nameLabel.isHidden = false
         statusImage.isHidden = false
+        self.isUserInteractionEnabled = true
     }
 }

@@ -77,6 +77,11 @@ class FavoritesTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        guard hasFavorites else { return false }
+        return true
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if let cell = tableView.cellForRow(at: indexPath) as? FavoriteTableViewCell, let favorite = cell.favorite {

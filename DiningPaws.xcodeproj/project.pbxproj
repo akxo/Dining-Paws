@@ -161,13 +161,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		A605F72321C211F70055D618 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		A65819CF21C4921300EF10BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,7 +295,6 @@
 			isa = PBXGroup;
 			children = (
 				A605F72221C211EA0055D618 /* Model */,
-				A605F72321C211F70055D618 /* Controller */,
 				A6FE50E921BEFC2D0071C67F /* Info.plist */,
 			);
 			path = DiningPawsTests;
@@ -628,7 +620,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -648,7 +640,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

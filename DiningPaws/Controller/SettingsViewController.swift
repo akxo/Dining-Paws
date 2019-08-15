@@ -148,6 +148,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             restrictedAlert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
             self.present(restrictedAlert, animated: true, completion: nil)
             return false
+        @unknown default:
+            return false
         }
     }
 }

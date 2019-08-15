@@ -23,14 +23,14 @@ struct UConn {
     static let secondaryColor: UIColor = #colorLiteral(red: 0.4862745098, green: 0.5294117647, blue: 0.5568627451, alpha: 0.7963934075)
     
     static func initializeNewDiningHalls() -> [DiningHall] {
-        let buckley = DiningHall(name: "Buckley", locationNumber: "03", locationName: "Buckley+Dining+Hall", days: [], location: CLLocation(latitude: 41.805625, longitude: -72.244020))
-        let mcmahon = DiningHall(name: "McMahon", locationNumber: "05", locationName: "McMahon+Dining+Hall", days: [], location: CLLocation(latitude: 41.803548, longitude: -72.252385))
-        let north = DiningHall(name: "North", locationNumber: "07", locationName: "North+Campus+Dining+Hall", days: [], location: CLLocation(latitude: 41.812185, longitude: -72.258381))
-        let northwest = DiningHall(name: "Northwest", locationNumber: "15", locationName: "Northwest+Marketplace", days: [], location: CLLocation(latitude: 41.811441, longitude: -72.259667))
-        let putnam = DiningHall(name: "Putnam", locationNumber: "06", locationName: "Putnam+Dining+Hall", days: [], location: CLLocation(latitude: 41.805151, longitude: -72.258880))
-        let south = DiningHall(name: "South", locationNumber: "16", locationName: "South+Campus+Marketplace", days: [], location: CLLocation(latitude: 41.803892, longitude: -72.248538))
-        let towers = DiningHall(name: "Towers", locationNumber: "42", locationName: "Gelfenbien+Commons+%26+Halal", days: [], location: CLLocation(latitude: 41.813455, longitude: -72.254368))
-        let whitney = DiningHall(name: "Whitney", locationNumber: "01", locationName: "Whitney+Dining+Hall", days: [], location: CLLocation(latitude: 41.809891, longitude: -72.247374))
+        let buckley = DiningHall(name: "Buckley", locationNumber: "03", locationName: "Buckley+Dining+Hall", days: [:], location: CLLocation(latitude: 41.805625, longitude: -72.244020))
+        let mcmahon = DiningHall(name: "McMahon", locationNumber: "05", locationName: "McMahon+Dining+Hall", days: [:], location: CLLocation(latitude: 41.803548, longitude: -72.252385))
+        let north = DiningHall(name: "North", locationNumber: "07", locationName: "North+Campus+Dining+Hall", days: [:], location: CLLocation(latitude: 41.812185, longitude: -72.258381))
+        let northwest = DiningHall(name: "Northwest", locationNumber: "15", locationName: "Northwest+Marketplace", days: [:], location: CLLocation(latitude: 41.811441, longitude: -72.259667))
+        let putnam = DiningHall(name: "Putnam", locationNumber: "06", locationName: "Putnam+Dining+Hall", days: [:], location: CLLocation(latitude: 41.805151, longitude: -72.258880))
+        let south = DiningHall(name: "South", locationNumber: "16", locationName: "South+Campus+Marketplace", days: [:], location: CLLocation(latitude: 41.803892, longitude: -72.248538))
+        let towers = DiningHall(name: "Towers", locationNumber: "42", locationName: "Gelfenbien+Commons+%26+Halal", days: [:], location: CLLocation(latitude: 41.813455, longitude: -72.254368))
+        let whitney = DiningHall(name: "Whitney", locationNumber: "01", locationName: "Whitney+Dining+Hall", days: [:], location: CLLocation(latitude: 41.809891, longitude: -72.247374))
         return [buckley, mcmahon, north, northwest, putnam, south, towers, whitney]
     }
     

@@ -110,7 +110,7 @@ class CampusPageViewController: UIPageViewController, UIPageViewControllerDelega
     
     // MARK: page view methods
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let currentIndex = days.index(of: viewController) else { return nil }
+        guard let currentIndex = days.firstIndex(of: viewController) else { return nil }
         let previousIndex = currentIndex - 1
         guard previousIndex >= 0 else { return nil }
         let viewController = days[previousIndex] as? DiningHallsViewController
@@ -120,7 +120,7 @@ class CampusPageViewController: UIPageViewController, UIPageViewControllerDelega
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let currentIndex = days.index(of: viewController) else { return nil }
+        guard let currentIndex = days.firstIndex(of: viewController) else { return nil }
         let nextIndex = currentIndex + 1
         guard days.count > nextIndex else { return nil }
         let viewController = days[nextIndex] as? DiningHallsViewController
@@ -149,7 +149,7 @@ class CampusPageViewController: UIPageViewController, UIPageViewControllerDelega
     
     private func goToSearchResult(_ result: SearchResult) {
         let diningHall = self.campus.diningHalls[result.diningHallIndex]
-        let day = diningHall.days[result.dayIndex]
+        guard let date = result.date, let day = diningHall.days[date] else { return }
         let dayViewController = DayViewController(diningHallName: diningHall.name, day: day, initialMealIndex: result.mealIndex)
         self.navigationController?.pushViewController(dayViewController, animated: true)
     }

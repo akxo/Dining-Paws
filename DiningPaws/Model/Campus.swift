@@ -50,42 +50,31 @@ class Campus: NSObject, NSCoding {
         case lastLoadDate = "lastLoadDate"
     }
     
-    func loadToday() {
-        let today = Date()
-        guard !(lastLoadDate?.isEqual(to: today) ?? false) else { return }
-        
-        for diningHall in diningHalls {
-            while !diningHall.days.isEmpty, !diningHall.days.first!.date.isEqual(to: today) {
-                diningHall.days.removeFirst()
-            }
-        }
-        if diningHalls.first?.days.isEmpty ?? true {
-            self.addDay(for: today, completion: nil)
-        }
-        guard !(lastLoadDate?.isEqual(to: today) ?? false) else { return }
-        lastLoadDate = today
-        save()
-    }
-    
     func cleanUp() {
         let today = Date()
         guard !(lastLoadDate?.isEqual(to: today) ?? false) else { return }
         
         for diningHall in diningHalls {
-            while !diningHall.days.isEmpty, !diningHall.days.first!.date.isEqual(to: today) {
-                diningHall.days.removeFirst()
+            var newDaysDict = [Date : Day]()
+            
+            for (date, day) in diningHall.days {
+                if date.isEqual(to: today) || date > today {
+                    newDaysDict[date] = day
+                }
             }
+            
+            diningHall.days = newDaysDict
         }
     }
     
     func addDay(for date: Date, completion: (() -> Void)?) {
         for diningHall in diningHalls {
-            guard !diningHall.days.contains(where: { $0.date.isEqual(to: date) }) else { continue }
+            guard diningHall.days[date] == nil else { continue }
             guard let nextDay = MenuClient.shared.day(for: date, at: diningHall) else {
                 completion?()
                 return
             }
-            diningHall.days.append(nextDay)
+            diningHall.days[date] = nextDay
         }
         lastLoadDate = Date()
         save()
@@ -108,11 +97,11 @@ class Campus: NSObject, NSCoding {
     private func getAllOptions() -> [SearchResult] {
         var results = [SearchResult]()
         for (diningHallIndex, diningHall) in diningHalls.enumerated() {
-            for (dayIndex, day) in diningHall.days.enumerated() {
+            for (date, day) in diningHall.days {
                 for (mealIndex, meal) in day.meals.enumerated() {
                     for station in meal.stations {
                         for option in station.options {
-                            let result = SearchResult(name: option, diningHall: diningHall.name, date: day.date, meal: meal.name, dayIndex: dayIndex, diningHallIndex: diningHallIndex, mealIndex: mealIndex)
+                            let result = SearchResult(name: option, diningHall: diningHall.name, date: date, meal: meal.name, diningHallIndex: diningHallIndex, mealIndex: mealIndex)
                             results.append(result)
                         }
                     }

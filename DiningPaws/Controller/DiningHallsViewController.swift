@@ -24,9 +24,7 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     var loadAttempt: Int = 0
     
     private var hasDay: Bool {
-        let count = campus.diningHalls.reduce(0, { (count, diningHall) in
-            count + (diningHall.days.contains(where: { $0.date.isEqual(to: self.date) }) ? 1 : 0)
-        })
+        let count = campus.diningHalls.reduce(0) { $0 + ($1.days[date] != nil ? 1 : 0) }
         guard count == 8 else { return false }
         return true
     }
@@ -50,18 +48,11 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.setUserInteraction(to: false)
-        if !hasDay { self.setPagingIsEnabled(to: false) }
         diningHallsTableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        guard !hasDay else {
-            refreshControl.endRefreshing()
-            setUserInteraction(to: true)
-            setPagingIsEnabled(to: true)
-            return
-        }
+        guard !hasDay else { return }
         diningHallsTableView.contentOffset = CGPoint(x: 0, y: -self.refreshControl.frame.size.height)
         refreshControl.beginRefreshing()
         loadDay()
@@ -94,8 +85,6 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
                     self.loadAttempt += 1
                     self.diningHallsTableView.reloadData()
                     self.refreshControl.endRefreshing()
-                    self.setUserInteraction(to: true)
-                    self.setPagingIsEnabled(to: true)
                 }
             })
         }
@@ -136,7 +125,7 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let diningHall = campus.diningHalls[indexPath.row]
-        let day = diningHall.days[index]
+        guard let day = diningHall.days[date] else { return }
         let mealName = UConn.status(for: diningHall, on: Date())
         let initialMealIndex = day.index(for: mealName)
         let dayViewController = DayViewController(diningHallName: diningHall.name, day: day, initialMealIndex: initialMealIndex ?? 0)
@@ -151,8 +140,6 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
             refreshControl.endRefreshing()
             return
         }
-        setUserInteraction(to: false)
-        setPagingIsEnabled(to: false)
         loadDay()
     }
     

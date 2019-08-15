@@ -16,7 +16,6 @@ struct SearchResult {
     var meal: String?
     
     // helper properties
-    var dayIndex: Int
     var diningHallIndex: Int
     var mealIndex: Int
     

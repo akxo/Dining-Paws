@@ -20,21 +20,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        if let homeDiningHall = User.currentUser.homeDiningHall, let dayVC = dayViewController(for: homeDiningHall) {
-            
-            let navigationController = UINavigationController(rootViewController: dayVC)
-            window?.rootViewController = navigationController
-            window?.makeKeyAndVisible()
-        } else if User.currentUser.locationBasedLoadIsEnabled, let diningHall = closestDiningHall(), let dayVC = dayViewController(for: diningHall) {
-            
-            let navigationController = UINavigationController(rootViewController: dayVC)
-            window?.rootViewController = navigationController
-            window?.makeKeyAndVisible()
-        } else {
-            let navigationController = UINavigationController(rootViewController: CampusPageViewController())
-            window?.rootViewController = navigationController
-            window?.makeKeyAndVisible()
-        }
+        window?.rootViewController = StartViewController()
+        window?.makeKeyAndVisible()
+        
+//        if let homeDiningHall = User.currentUser.homeDiningHall, let dayVC = dayViewController(for: homeDiningHall) {
+//
+//            let navigationController = UINavigationController(rootViewController: dayVC)
+//            window?.rootViewController = navigationController
+//            window?.makeKeyAndVisible()
+//        } else if User.currentUser.locationBasedLoadIsEnabled, let diningHall = closestDiningHall(), let dayVC = dayViewController(for: diningHall) {
+//
+//            let navigationController = UINavigationController(rootViewController: dayVC)
+//            window?.rootViewController = navigationController
+//            window?.makeKeyAndVisible()
+//        } else {
+//            let navigationController = UINavigationController(rootViewController: CampusPageViewController())
+//            window?.rootViewController = navigationController
+//            window?.makeKeyAndVisible()
+//        }
         return true
     }
 

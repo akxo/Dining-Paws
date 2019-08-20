@@ -124,7 +124,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let today = Date()
         if let day = diningHall.day(for: today) { return day }
         if let day = MenuClient.shared.day(for: today, at: diningHall) {
-            diningHall.days[today] = day
+            diningHall.days[today.id] = day
             return day
         }
         return nil

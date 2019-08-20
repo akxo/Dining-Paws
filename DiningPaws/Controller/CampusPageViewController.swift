@@ -149,7 +149,7 @@ class CampusPageViewController: UIPageViewController, UIPageViewControllerDelega
     
     private func goToSearchResult(_ result: SearchResult) {
         let diningHall = self.campus.diningHalls[result.diningHallIndex]
-        guard let date = result.date, let day = diningHall.days[date] else { return }
+        guard let date = result.date, let day = diningHall.days[date.id] else { return }
         let dayViewController = DayViewController(diningHallName: diningHall.name, day: day, initialMealIndex: result.mealIndex)
         self.navigationController?.pushViewController(dayViewController, animated: true)
     }

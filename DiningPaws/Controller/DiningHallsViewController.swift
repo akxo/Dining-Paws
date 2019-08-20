@@ -24,7 +24,7 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     var loadAttempt: Int = 0
     
     private var hasDay: Bool {
-        let count = campus.diningHalls.reduce(0) { $0 + ($1.days[date] != nil ? 1 : 0) }
+        let count = campus.diningHalls.reduce(0) { $0 + ($1.days[date.id] != nil ? 1 : 0) }
         guard count == 8 else { return false }
         return true
     }
@@ -125,7 +125,7 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let diningHall = campus.diningHalls[indexPath.row]
-        guard let day = diningHall.days[date] else { return }
+        guard let day = diningHall.days[date.id] else { return }
         let mealName = UConn.status(for: diningHall, on: Date())
         let initialMealIndex = day.index(for: mealName)
         let dayViewController = DayViewController(diningHallName: diningHall.name, day: day, initialMealIndex: initialMealIndex ?? 0)

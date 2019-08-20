@@ -52,4 +52,17 @@ extension Date {
         let order = Calendar.current.compare(self, to: date, toGranularity: .day)
         return order == .orderedAscending
     }
+    
+    var id: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M-dd-yy"
+        return dateFormatter.string(from: self)
+    }
+    
+    init?(from id: String) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M-dd-yy"
+        guard let date = dateFormatter.date(from: id) else { return nil }
+        self = date
+    }
 }

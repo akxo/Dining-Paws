@@ -14,12 +14,11 @@ class DiningHall: NSObject, NSCoding {
     let name: String
     let locationNumber: String
     let locationName: String
-//    var days: [Day]
-    var days: [Date : Day]
+    var days: [String : Day]
     var location: CLLocation
     
     // MARK: init
-    init(name: String, locationNumber: String, locationName: String, days: [Date : Day], location: CLLocation) {
+    init(name: String, locationNumber: String, locationName: String, days: [String : Day], location: CLLocation) {
         self.name = name
         self.locationNumber = locationNumber
         self.locationName = locationName
@@ -40,7 +39,7 @@ class DiningHall: NSObject, NSCoding {
         guard let name = aDecoder.decodeObject(forKey: Key.name.rawValue) as? String,
         let locationNumber = aDecoder.decodeObject(forKey: Key.locationNumber.rawValue) as? String,
         let locationName = aDecoder.decodeObject(forKey: Key.locationName.rawValue) as? String,
-            let days = aDecoder.decodeObject(forKey: Key.days.rawValue) as? [Date: Day],
+            let days = aDecoder.decodeObject(forKey: Key.days.rawValue) as? [String : Day],
             let location = aDecoder.decodeObject(forKey: Key.location.rawValue) as? CLLocation else { return nil }
         self.init(name: name, locationNumber: locationNumber, locationName: locationName, days: days, location: location)
     }
@@ -54,7 +53,7 @@ class DiningHall: NSObject, NSCoding {
     }
     
     func day(for date: Date) -> Day? {
-        return days[date]
+        return days[date.id]
     }
     
     func hasFavorite(on date: Date) -> Bool {
@@ -70,7 +69,7 @@ class DiningHall: NSObject, NSCoding {
             completion?()
             return
         }
-        days[date] = day
+        days[date.id] = day
         completion?()
     }
 }

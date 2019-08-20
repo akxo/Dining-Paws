@@ -55,11 +55,11 @@ class Campus: NSObject, NSCoding {
         guard !(lastLoadDate?.isEqual(to: today) ?? false) else { return }
         
         for diningHall in diningHalls {
-            var newDaysDict = [Date : Day]()
+            var newDaysDict = [String : Day]()
             
-            for (date, day) in diningHall.days {
-                if date.isEqual(to: today) || date > today {
-                    newDaysDict[date] = day
+            for (dateId, day) in diningHall.days {
+                if let date = Date(from: dateId), date.isEqual(to: today) || today.isLess(than: date) {
+                    newDaysDict[date.id] = day
                 }
             }
             
@@ -69,12 +69,12 @@ class Campus: NSObject, NSCoding {
     
     func addDay(for date: Date, completion: (() -> Void)?) {
         for diningHall in diningHalls {
-            guard diningHall.days[date] == nil else { continue }
+            guard diningHall.days[date.id] == nil else { continue }
             guard let nextDay = MenuClient.shared.day(for: date, at: diningHall) else {
                 completion?()
                 return
             }
-            diningHall.days[date] = nextDay
+            diningHall.days[date.id] = nextDay
         }
         lastLoadDate = Date()
         save()
@@ -97,7 +97,8 @@ class Campus: NSObject, NSCoding {
     private func getAllOptions() -> [SearchResult] {
         var results = [SearchResult]()
         for (diningHallIndex, diningHall) in diningHalls.enumerated() {
-            for (date, day) in diningHall.days {
+            for (dateId, day) in diningHall.days {
+                guard let date = Date(from: dateId) else { continue }
                 for (mealIndex, meal) in day.meals.enumerated() {
                     for station in meal.stations {
                         for option in station.options {

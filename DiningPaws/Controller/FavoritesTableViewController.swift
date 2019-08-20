@@ -96,7 +96,7 @@ class FavoritesTableViewController: UITableViewController {
         addFavoriteAlert.addTextField(configurationHandler: nil)
         addFavoriteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         addFavoriteAlert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak addFavoriteAlert] (_) in
-            if let favorite = addFavoriteAlert?.textFields?.first?.text {
+            if let favorite = addFavoriteAlert?.textFields?.first?.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
                 User.currentUser.add(favorite)
                 self.tableView.reloadData()
             }

@@ -60,7 +60,7 @@ class User: NSObject, NSCoding {
     
     // MARK: functional methods
     public func add(_ favorite: String) {
-        guard !favorites.map({ $0.lowercased() }).contains(favorite.lowercased()) else { return }
+        guard !favorite.isEmpty, !favorites.map({ $0.lowercased() }).contains(favorite.lowercased()) else { return }
         favorites.append(favorite)
         enabledFavorites.insert(favorite)
         favorites.sort()

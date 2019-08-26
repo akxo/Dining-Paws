@@ -39,7 +39,7 @@ extension Date {
         if self.isEqual(to: today) { return "Today" }
         if self.isEqual(to: Calendar.current.date(byAdding: .day, value: 1, to: today) ?? Date()) { return "Tomorrow" }
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM dd, yyyy"
+        dateFormatter.dateFormat = "E, MMM d"
         return dateFormatter.string(from: self)
     }
     

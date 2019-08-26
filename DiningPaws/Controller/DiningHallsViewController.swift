@@ -49,13 +49,15 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewWillAppear(_ animated: Bool) {
         diningHallsTableView.reloadData()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
+        
         guard !hasDay else { return }
         diningHallsTableView.contentOffset = CGPoint(x: 0, y: -self.refreshControl.frame.size.height)
         refreshControl.beginRefreshing()
         loadDay()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        refreshControl.endRefreshing()
     }
     
     // MARK: initial setup
@@ -124,13 +126,13 @@ class DiningHallsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let diningHall = campus.diningHalls[indexPath.row]
         guard let day = diningHall.days[date.id] else { return }
         let mealName = UConn.status(for: diningHall, on: Date())
         let initialMealIndex = day.index(for: mealName)
         let dayViewController = DayViewController(diningHallName: diningHall.name, day: day, initialMealIndex: initialMealIndex ?? 0)
         self.navigationController?.pushViewController(dayViewController, animated: true)
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

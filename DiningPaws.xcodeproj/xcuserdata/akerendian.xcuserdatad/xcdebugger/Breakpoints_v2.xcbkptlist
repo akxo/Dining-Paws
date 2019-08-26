@@ -9,29 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DiningPaws/Controller/DiningHallsViewController.swift"
-            timestampString = "588253594.598942"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "DiningPaws/Controller/CampusPageViewController.swift"
-            timestampString = "588259062.340186"
+            timestampString = "588518025.00922"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "loadCampus()"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "initializeDays()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

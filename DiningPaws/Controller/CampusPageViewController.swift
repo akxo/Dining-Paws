@@ -96,6 +96,9 @@ class CampusPageViewController: UIPageViewController, UIPageViewControllerDelega
             guard let nextDate = Calendar.current.date(byAdding: .day, value: numDay, to: today) else { continue }
             let diningHallsViewController = DiningHallsViewController(date: nextDate, index: numDay)
             diningHallsViewController.swipe = { offset in
+                if let index = days.firstIndex(of: diningHallsViewController), index != self.currentIndex {
+                    self.currentIndex = index
+                }
                 guard self.currentIndex + offset >= 0, self.currentIndex + offset < days.count else { return }
                 self.currentIndex += offset
                 let direction: NavigationDirection = offset > 0 ? .forward : .reverse

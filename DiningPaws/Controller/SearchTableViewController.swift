@@ -36,7 +36,6 @@ class SearchTableViewController: UITableViewController {
         allOptions = campus.allOptions
         filteredOptions = allOptions
         tableView.reloadData()
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
     
     // search update method
